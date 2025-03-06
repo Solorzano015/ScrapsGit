@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -14,33 +15,22 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        RaycastHit hit;
-        Vector3 castPos = transform.position;
-        castPos.y += 1;
-        if (Physics.Raycast(castPos, -transform.up, out hit, Mathf.Infinity, groundMask))
-        {
-            if (hit.collider != null)
 
-            {
-                Vector3 movePos = transform.position;
-                movePos.y = hit.point.y + groundDist;
-                transform.position = movePos;
-
-            }
-
-        }
+       
 
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
-        Vector3 direction = new Vector3(x, 0, y);
-        rb.linearVelocity = direction * speed;
+        Vector3 direction = new Vector3(x, 0, y).normalized;
+        rb.velocity = new Vector3(direction.x * speed, rb.velocity.y * speed, direction.z * speed);
+        //rb.AddForce = direction * speed;
+        //rb.angularVelocity = direction * speed *Time.deltaTime;
 
-        rb.angularVelocity = direction * speed;
 
         if (x != 0 && x < 0)
         {
