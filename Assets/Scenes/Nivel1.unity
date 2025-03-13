@@ -1164,12 +1164,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
+  jumpForce: 60
   groundDist: 23
   groundMask:
     serializedVersion: 2
     m_Bits: 64
   rb: {fileID: 1317581930}
   SpriteRenderer: {fileID: 2068001642}
+  sideSpite: {fileID: 2068001642}
+  frontSprite: {fileID: 0}
 --- !u!54 &1317581930
 Rigidbody:
   m_ObjectHideFlags: 0
