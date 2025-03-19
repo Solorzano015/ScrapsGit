@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 moveInput;
     public LayerMask groundMask;
     public Transform Respawn;
+    public SpriteRenderer spriteRenderer;
 
 
     void Start()
@@ -56,6 +57,16 @@ public class PlayerController : MonoBehaviour
             //rb.velocity += new Vector3(0f, jumpForce, 0f);
 
         }
+
+        if (moveInput.x != 0 && moveInput.x < 0)
+        {
+            spriteRenderer.flipX = true;
+        }
+        else if (moveInput.x != 0 && moveInput.x > 0)
+        {
+            spriteRenderer.flipX = false;
+        }
+
         Debug.DrawRay(groundPoint.position, Vector3.down * groundDist, Color.red);
         Debug.Log("¿Está en el suelo? " + isGrounded);
 
