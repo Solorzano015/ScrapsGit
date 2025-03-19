@@ -8,11 +8,16 @@ public class PlayerController : MonoBehaviour
     public float speed;
     public float jumpForce;
     public float groundDist = 0.5f;
+
+
     public Rigidbody rb;
     public Transform groundPoint;
     private bool isGrounded;
 
     private Vector2 moveInput;
+    public float normalGravity;
+    public float AbGravity;
+
     public LayerMask groundMask;
     public Transform Respawn;
     public SpriteRenderer spriteRenderer;
@@ -20,13 +25,13 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-
         rb = GetComponent<Rigidbody>();
+        rb.useGravity = false;
     }
 
     void Update()
     {
-
+        //moverse en el mundo
         moveInput.x = Input.GetAxis("Horizontal");
         moveInput.y = Input.GetAxis("Vertical");
         moveInput.Normalize();
@@ -57,6 +62,18 @@ public class PlayerController : MonoBehaviour
             //rb.velocity += new Vector3(0f, jumpForce, 0f);
 
         }
+        //Manejar gravedad para planear o saltar solo
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            rb.velocity += Vector3.down * AbGravity * Time.deltaTime;
+
+        }
+        else
+        {
+            rb.velocity += Vector3.down * normalGravity * Time.deltaTime;
+        }
+
+        //Hacer que se voltee el sprite
 
         if (moveInput.x != 0 && moveInput.x < 0)
         {
@@ -66,15 +83,20 @@ public class PlayerController : MonoBehaviour
         {
             spriteRenderer.flipX = false;
         }
+        //revisar si toca el suelo (no funcionaba salto)
 
         Debug.DrawRay(groundPoint.position, Vector3.down * groundDist, Color.red);
         Debug.Log("¿Está en el suelo? " + isGrounded);
 
-
+        // asegurar que no se salga del mapa
         if (transform.position.y < -10f)
         {
             transform.position = new Vector3(0, 2, 0); // Reaparece en un punto seguro
         }
+
+        
+
+
 
 
     }
