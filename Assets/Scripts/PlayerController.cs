@@ -1,3 +1,4 @@
+using System.IO;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -6,47 +7,69 @@ public class PlayerController : MonoBehaviour
 {
     public float speed;
     public float jumpForce;
-    public float groundDist;
-
-    public LayerMask groundMask;
+    public float groundDist = 0.5f;
     public Rigidbody rb;
-    public SpriteRenderer SpriteRenderer;
-    public SpriteRenderer sideSpite;
-    public SpriteRenderer frontSprite;
-
+    public Transform groundPoint;
     private bool isGrounded;
+
+    private Vector2 moveInput;
+    public LayerMask groundMask;
+    public Transform Respawn;
+
 
     void Start()
     {
-        rb = gameObject.GetComponent<Rigidbody>();
-        
+
+        rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        isGrounded = Physics.Raycast(transform.position, Vector3.down, groundDist, groundMask);
-       
 
-        float x = Input.GetAxis("Horizontal");
-        float y = Input.GetAxis("Vertical");
-        Vector3 direction = new Vector3(x, 0, y).normalized;
-        rb.velocity = new Vector3(direction.x * speed, rb.velocity.y * speed, direction.z * speed);
-        //rb.AddForce = direction * speed;
-        //rb.angularVelocity = direction * speed *Time.deltaTime;
+        moveInput.x = Input.GetAxis("Horizontal");
+        moveInput.y = Input.GetAxis("Vertical");
+        moveInput.Normalize();
 
 
-        if (x != 0 && x < 0)
+        rb.velocity = new Vector3(moveInput.x * speed, rb.velocity.y, moveInput.y * speed);
+
+        /*
+        RaycastHit hit;
+        if (Physics.Raycast(groundPoint.position, Vector3.down, out hit, .3f, groundMask))
         {
-            SpriteRenderer.flipX = true;
+            isGrounded = true;
         }
-        else if (x != 0 && x > 0)
+        else
         {
-            SpriteRenderer.flipX = false;
+            isGrounded = false;
         }
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        */
+        isGrounded = Physics.Raycast(groundPoint.position, Vector3.down, groundDist, groundMask);
+
+        if (Input.GetButtonDown("Jump") && isGrounded)
         {
             rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
+
+
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+
+            //rb.velocity += new Vector3(0f, jumpForce, 0f);
+
         }
+        Debug.DrawRay(groundPoint.position, Vector3.down * groundDist, Color.red);
+        Debug.Log("¿Está en el suelo? " + isGrounded);
+
+
+        if (transform.position.y < -10f)
+        {
+            transform.position = new Vector3(0, 2, 0); // Reaparece en un punto seguro
+        }
+
+
     }
+
+
 }
+
+
+
