@@ -15,10 +15,15 @@ public class Points : MonoBehaviour
     private void Start()
     {
         healthPlayer.health = healthPlayer.MaxHealth;
+        UpdateHealthUI();
     }
 
     private void Update()
     {
-        healthText.text = healthPlayer.health.ToString() + "/" + healthPlayer.MaxHealth; 
+        UpdateHealthUI();
+    }
+    private void UpdateHealthUI()
+    {
+        healthText.text = healthPlayer.health.ToString() + "/" + healthPlayer.MaxHealth;
     }
 }
