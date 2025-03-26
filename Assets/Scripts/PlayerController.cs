@@ -22,6 +22,10 @@ public class PlayerController : MonoBehaviour
     public Transform Respawn;
     public SpriteRenderer spriteRenderer;
 
+    public float maxGlideTime = 0.5f;
+    private float glideTime = 0f;   
+    private bool canGlide = true;
+
 
     void Start()
     {
@@ -66,6 +70,12 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift))
         {
             rb.velocity += Vector3.down * AbGravity * Time.deltaTime;
+            glideTime += Time.deltaTime;
+
+            if (glideTime >= maxGlideTime)
+            {
+                canGlide = false;
+            }
 
         }
         else
@@ -99,6 +109,10 @@ public class PlayerController : MonoBehaviour
 
 
 
+    }
+    public void RespawnPlayer()
+    {
+        transform.position = Respawn.position;
     }
 
 

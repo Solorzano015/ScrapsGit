@@ -10,7 +10,7 @@ public class Trap : MonoBehaviour
         HealthControl healthControl = other.GetComponent<HealthControl>();
         if (healthControl != null)
         {
-            healthControl.health -= damage;
+            healthControl.TakeDamage(damage);
             Debug.Log("vida del jugador:" + healthControl.health);
         }
 
