@@ -5,34 +5,48 @@ using System.Collections.Generic;
 public class EnemyG : MonoBehaviour
 {
 
-    public Transform[] wayPointArray;
+    public float speed;  // Velocidad del enemigo
+    public LayerMask obstacleLayer;  // Capa para detectar los obstáculos
 
-    public List<Transform> waypoints = new List<Transform>();
-    public Dictionary <string, Transform> wayPointsDicc = new Dictionary<string, Transform>();
+    private Vector3 direction = Vector3.right; // Comienza moviéndose a la derecha
 
-    int wayPointActual;
-    float MinDist = 0.5f;
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        
-        Vector3 newPosition = wayPointArray[wayPointActual].position;
+        // Mueve al enemigo en la dirección actual
+        transform.position += direction * speed * Time.deltaTime;
 
-        transform.position += (newPosition - transform.position).normalized;
-
-        if ( Vector3.Distance(newPosition, transform.position)< MinDist)
+        // Detecta si hay un obstáculo adelante usando un Raycast
+        if (Physics.Raycast(transform.position, direction, 0.6f, obstacleLayer))
         {
-            wayPointActual++;
-            if(wayPointActual >= wayPointArray.Length) 
-            {
-                wayPointActual = 0;
-            }
+            direction *= -1; // Cambia la dirección si hay un obstáculo
         }
-        
     }
+
+    
+    void OnDrawGizmos()
+    {
+        // Dibuja una línea en la escena para visualizar el Raycast
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(transform.position, transform.position + direction * 0.6f);
+    }
+
+    /*
+    public float speed = 3f;
+    private int direction = 1; // 1 para derecha, -1 para izquierda
+
+    void Update()
+    {
+        // Mover el enemigo en la dirección actual
+        transform.position += Vector3.right * direction * speed * Time.deltaTime;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        // Cuando choca, cambia de dirección
+        direction *= -1;
+    }
+    */
+
+
 }
+
