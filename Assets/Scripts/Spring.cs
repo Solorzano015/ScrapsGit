@@ -8,11 +8,16 @@ public class Spring : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.CompareTag("Player"))
+        {
+            Points control = FindAnyObjectByType<Points>();
+            control.springs += valor;
+            control.PointText.text = "" + control.springs;
+            Destroy(gameObject);
 
-        Points control = FindAnyObjectByType<Points>();
-        control.springs += valor;
-        control.PointText.text = "" + control.springs;
-        Destroy(gameObject);
+        }
+        
+
 
     }
 }

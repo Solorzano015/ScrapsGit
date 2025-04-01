@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     public Transform groundPoint;
     private bool isGrounded;
 
+    public Animator animator;
+
 
     //gravedad para habilidad
     private Vector2 moveInput;
@@ -51,18 +53,9 @@ public class PlayerController : MonoBehaviour
 
 
         rb.velocity = new Vector3(moveInput.x * speed, rb.velocity.y, moveInput.y * speed);
+        Animation();
 
-        /*
-        RaycastHit hit;
-        if (Physics.Raycast(groundPoint.position, Vector3.down, out hit, .3f, groundMask))
-        {
-            isGrounded = true;
-        }
-        else
-        {
-            isGrounded = false;
-        }
-        */
+
         isGrounded = Physics.Raycast(groundPoint.position, Vector3.down, groundDist, groundMask);
 
         if (Input.GetButtonDown("Jump") && isGrounded)
@@ -118,12 +111,37 @@ public class PlayerController : MonoBehaviour
         {
             Shoot();
         }
+
         
 
 
 
+    }
+
+    void Animation()
+    {
+        
+        
+        if (moveInput.x != 0 && moveInput.x < 0)
+        {
+            animator.SetBool("WalkingL", true);
+            Debug.Log("entra a walkingL");
+        }
+        else if (moveInput.x != 0 && moveInput.x > 0)
+        {
+            animator.SetBool("WalkingL", true);
+            Debug.Log("entra a walkingL");
+        }
+        if (moveInput.x == 0)
+        {
+            animator.SetBool("WalkingL", false);
+            Debug.Log("sale a walkingL");
+
+        }
+
 
     }
+
 
     void Shoot()
     {
@@ -133,7 +151,10 @@ public class PlayerController : MonoBehaviour
             Rigidbody bulletRB = bullet.GetComponent<Rigidbody>();
             if (bulletRB != null)
             {
+                bulletRB.useGravity = false;
+                Vector3 shootDirection = Vector3.forward;
                 bulletRB.velocity = firepoint.forward * bulletSpeed;
+                
 
             }
 
