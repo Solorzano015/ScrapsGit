@@ -26,6 +26,7 @@ public class HealthControl : MonoBehaviour
         if (health <= 0)
         {
             Die();
+            Debug.Log("Murio");
         }
     }
 
@@ -37,9 +38,14 @@ public class HealthControl : MonoBehaviour
 
     public void Respawn()
     {
+       
         health = MaxHealth;
         playerController.RespawnPlayer();
         deathScreen.SetActive(false);
         Time.timeScale = 1f;
+        
+        
+
+       
     }
 }
