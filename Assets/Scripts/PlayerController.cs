@@ -14,17 +14,26 @@ public class PlayerController : MonoBehaviour
     public Transform groundPoint;
     private bool isGrounded;
 
+
+    //gravedad para habilidad
     private Vector2 moveInput;
     public float normalGravity;
     public float AbGravity;
 
+    //respawn y render
     public LayerMask groundMask;
     public Transform Respawn;
     public SpriteRenderer spriteRenderer;
 
+    //habilidad
     public float maxGlideTime = 0.5f;
     private float glideTime = 0f;   
     private bool canGlide = true;
+
+    //Arma
+    public GameObject bulletPrefab;
+    public Transform firepoint;
+    public float bulletSpeed;
 
 
     void Start()
@@ -104,10 +113,31 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(0, 2, 0); // Reaparece en un punto seguro
         }
 
+        //para la bala
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Shoot();
+        }
         
 
 
 
+
+    }
+
+    void Shoot()
+    {
+        if (bulletPrefab != null && firepoint != null)
+        {
+            GameObject bullet = Instantiate(bulletPrefab, firepoint.position, firepoint.rotation);
+            Rigidbody bulletRB = bullet.GetComponent<Rigidbody>();
+            if (bulletRB != null)
+            {
+                bulletRB.velocity = firepoint.forward * bulletSpeed;
+
+            }
+
+        }
 
     }
     public void RespawnPlayer()

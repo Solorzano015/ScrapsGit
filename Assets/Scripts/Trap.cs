@@ -21,6 +21,10 @@ public class Trap : MonoBehaviour
                 pushDirection.y = 0;
                 rb.AddForce(pushDirection* pushForce, ForceMode.Impulse);
             }
+            else
+            {
+                Debug.Log("El objeto colisionado no tiene health control");
+            }
 
         }
 
