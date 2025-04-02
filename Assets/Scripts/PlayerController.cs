@@ -30,7 +30,8 @@ public class PlayerController : MonoBehaviour
     private bool canGlide = true;
 
     private bool hasWeapon = false;
-       
+    private bool isShooting = false;
+
 
     void Start()
     {
@@ -52,13 +53,21 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new Vector3(moveInput.x * speed, rb.velocity.y, moveInput.y * speed);
         Animation();
 
-        isGrounded = Physics.Raycast(groundPoint.position, Vector3.down, groundDist, groundMask);
+        isGrounded = Physics.Raycast(groundPoint.position, Vector3.down, groundDist, groundMask); //verificar qye esta en el suelo
 
+
+        //Salto
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            
+            animator.SetBool("Jumping", true);
+            Debug.Log("entrando de animacion de salto");
+            StartCoroutine(ResetJumpAnimation());
+            
         }
+        
 
         // Manejo de gravedad
         if (Input.GetKey(KeyCode.LeftShift))
@@ -87,15 +96,18 @@ public class PlayerController : MonoBehaviour
             spriteRenderer.flipX = false;
         }
 
-        if (hasWeapon && Input.GetKeyDown(KeyCode.E))
+        if (hasWeapon && Input.GetKeyDown(KeyCode.E) && !isShooting) //animacion disparo de personaje 
         {
-            animator.SetTrigger("Shooting");
+            //animator.SetTrigger("Shooting"); //(no funciono)
+            //animator.SetBool("Shooting", true);
+            StartCoroutine(ShootAnimation());
         }
 
-        
+
+
     }
 
-   
+
 
     void Animation()
     {
@@ -120,7 +132,7 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("WalkingL", false);
         }
         */
-        
+
     }
 
     public void PickUpWeapon()
@@ -128,11 +140,36 @@ public class PlayerController : MonoBehaviour
         hasWeapon = true;
     }
 
+    private System.Collections.IEnumerator ShootAnimation()
+    {
+        /*
+        yield return new WaitForSeconds(0.5f); // tiempo de animacion 
+        animator.SetBool("Shooting", false);
+        Debug.Log("Saliendo de animacion de disparo");
+       */
+
+        isShooting = true;
+        animator.SetTrigger("Shooting");
+        yield return new WaitForSeconds(0.5f); // tiempo de animacion
+        isShooting = false;
+        
+    }
+    private System.Collections.IEnumerator ResetJumpAnimation()
+    {
+        yield return new WaitForSeconds(0.26f); // tiempo de animacion 
+        if (isGrounded)
+        {
+            animator.SetBool("Jumping", false);
+            Debug.Log("Saliendo de animacion de salto");
+        }
+    }
+
     public void RespawnPlayer()
     {
         transform.position = Respawn.position;
     }
 }
+
 
 
 

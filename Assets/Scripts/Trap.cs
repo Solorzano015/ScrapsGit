@@ -21,12 +21,33 @@ public class Trap : MonoBehaviour
                 pushDirection.y = 0;
                 rb.AddForce(pushDirection* pushForce, ForceMode.Impulse);
             }
-            else
+
+            // Busca  enemigo cercano y activa animación de ataque
+            EnemyG enemy = FindClosestEnemy();
+            if (enemy != null)
             {
-                Debug.Log("El objeto colisionado no tiene health control");
+                enemy.BoolAttack();
             }
 
         }
 
+
+    }
+    private EnemyG FindClosestEnemy()
+    {
+        EnemyG[] enemies = FindObjectsOfType<EnemyG>();
+        EnemyG closestEnemy = null;
+        float minDistance = Mathf.Infinity;
+
+        foreach (EnemyG enemy in enemies)
+        {
+            float distance = Vector3.Distance(transform.position, enemy.transform.position);
+            if (distance < minDistance)
+            {
+                minDistance = distance;
+                closestEnemy = enemy;
+            }
+        }
+        return closestEnemy;
     }
 }
