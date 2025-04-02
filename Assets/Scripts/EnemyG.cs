@@ -16,9 +16,13 @@ public class EnemyG : MonoBehaviour
 
     //animacion
     public Animator animator;
-    //private bool isAttacking = false;
-    //private float attackDuration = 0.5f; // Duración de la animación de ataque
-    //private float attackTimer = 0f;
+    private bool isAttacking = false;
+    private float attackDuration = 0.5f; // Duración de la animación de ataque
+    private float attackTimer = 0f;
+
+    // Contador de enemigos eliminados
+    private static int enemyKillCount = 0;
+    public GameObject healthPrefab;
 
     void Start()
     {
@@ -28,7 +32,7 @@ public class EnemyG : MonoBehaviour
 
     void Update()
     {
-        /* //no funciono con amnimacion enemigo
+        
         if (isAttacking)
         {
             attackTimer += Time.deltaTime;
@@ -49,7 +53,9 @@ public class EnemyG : MonoBehaviour
                 direction *= -1;
             }
         }
-        */
+        
+
+        /* //no funciono con amnimacion enemigo
         // Mueve al enemigo en la dirección actual
         if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Attacking"))
         {
@@ -62,7 +68,7 @@ public class EnemyG : MonoBehaviour
         {
             direction *= -1; // Cambia la dirección si hay un obstáculo
         }
-        
+        */
     }
 
     public void TakeDamage(float amount)
@@ -76,16 +82,32 @@ public class EnemyG : MonoBehaviour
 
     void Die()
     {
-        Destroy(gameObject); // Eliminar el enemigo
+        enemyKillCount++; // Incrementamos el contador
+
+        if (enemyKillCount >= 3)
+        {
+            DropHealth(); // Soltamos la vida
+            enemyKillCount = 0; // Reiniciamos el contador
+        }
+
+        Destroy(gameObject);
+    }
+    void DropHealth()
+    {
+        if (healthPrefab != null)
+        {
+            Instantiate(healthPrefab, transform.position, Quaternion.identity);
+        }
     }
 
     public void BoolAttack()
     {
-        Debug.Log("Esta atacando el enemigo");
-        //isAttacking = true;
-        //attackTimer = 0f;
-        //animator.SetBool("Attacking", true);
-        animator.SetTrigger("Attacking");
+        Debug.Log("comienza animacion atacando el enemigo");
+        isAttacking = true;
+        attackTimer = 0f;
+        animator.SetBool("Attacking", true);
+        //animator.SetTrigger("Attacking");
+        Debug.Log("Salir animacion atacando el enemigo");
     }
 
     void OnDrawGizmos()
