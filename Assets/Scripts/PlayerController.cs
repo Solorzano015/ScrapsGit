@@ -29,8 +29,11 @@ public class PlayerController : MonoBehaviour
     private float glideTime = 0f;
     private bool canGlide = true;
 
+    //animacion disparo
     private bool hasWeapon = false;
     private bool isShooting = false;
+
+    
 
 
     void Start()
@@ -168,6 +171,8 @@ public class PlayerController : MonoBehaviour
     {
         transform.position = Respawn.position;
     }
+
+   
 }
 
 
