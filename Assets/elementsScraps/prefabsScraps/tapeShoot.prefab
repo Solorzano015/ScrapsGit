@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 1260945136421194797}
   - component: {fileID: 647930418024852767}
   - component: {fileID: 4556344823718574957}
-  m_Layer: 0
+  - component: {fileID: 5193005614893705955}
+  m_Layer: 11
   m_Name: tapeShoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,3 +138,17 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 4.109969
   m_Center: {x: 0, y: 0.48003215, z: 0}
+--- !u!114 &5193005614893705955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2190468755835812738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f21351ec13ffad64baeaa85c0cabb851, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  lifeTime: 3

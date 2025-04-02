@@ -17,8 +17,8 @@ TagManager:
   - isGround
   - Ground
   - Obstaculo
-  - 
-  - 
+  - Enemy
+  - Bullet
   - 
   - 
   - 

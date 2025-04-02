@@ -28,11 +28,7 @@ public class PlayerController : MonoBehaviour
     public float maxGlideTime = 0.5f;
     private float glideTime = 0f;
     private bool canGlide = true;
-
-    // Arma
-    public GameObject bulletPrefab;
-    public Transform firepoint;
-    public float bulletSpeed;
+       
 
     void Start()
     {
@@ -87,28 +83,10 @@ public class PlayerController : MonoBehaviour
             spriteRenderer.flipX = false;
         }
 
-        // Disparo
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            Shoot();
-        }
+        
     }
 
-    void Shoot()
-    {
-        if (bulletPrefab != null && firepoint != null)
-        {
-            GameObject bullet = Instantiate(bulletPrefab, firepoint.position, Quaternion.identity);
-            Rigidbody bulletRB = bullet.GetComponent<Rigidbody>();
-
-            if (bulletRB != null)
-            {
-                bulletRB.useGravity = false;
-                Vector3 shootDirection = new Vector3(lastMoveDirection.x, lastMoveDirection.y, 0).normalized; // Mantener dirección
-                bulletRB.velocity = shootDirection * bulletSpeed;
-            }
-        }
-    }
+   
 
     void Animation()
     {
@@ -120,6 +98,7 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetBool("WalkingL", false);
         }
+        
     }
 
     public void RespawnPlayer()
