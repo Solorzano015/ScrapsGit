@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour
     public float maxGlideTime = 0.5f;
     private float glideTime = 0f;
     private bool canGlide = true;
+
+    private bool hasWeapon = false;
        
 
     void Start()
@@ -67,10 +69,12 @@ public class PlayerController : MonoBehaviour
             {
                 canGlide = false;
             }
+            animator.SetBool("Gliding", true);
         }
         else
         {
             rb.velocity += Vector3.down * normalGravity * Time.deltaTime;
+            animator.SetBool("Gliding", false);
         }
 
         // Voltear sprite según dirección
@@ -83,6 +87,11 @@ public class PlayerController : MonoBehaviour
             spriteRenderer.flipX = false;
         }
 
+        if (hasWeapon && Input.GetKeyDown(KeyCode.E))
+        {
+            animator.SetTrigger("Shooting");
+        }
+
         
     }
 
@@ -90,6 +99,18 @@ public class PlayerController : MonoBehaviour
 
     void Animation()
     {
+        //animacion lateral
+        bool isWalkingX = moveInput.x != 0;
+        animator.SetBool("WalkingL", isWalkingX);
+
+        //animacion frente y trasera
+        bool isWalkingForward = moveInput.y < 0;
+        bool isWalkingBackward = moveInput.y > 0;
+
+        animator.SetBool("WalkingF", isWalkingForward);
+        animator.SetBool("WalkingB", isWalkingBackward);
+
+        /*
         if (moveInput.x != 0)
         {
             animator.SetBool("WalkingL", true);
@@ -98,7 +119,13 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetBool("WalkingL", false);
         }
+        */
         
+    }
+
+    public void PickUpWeapon()
+    {
+        hasWeapon = true;
     }
 
     public void RespawnPlayer()
