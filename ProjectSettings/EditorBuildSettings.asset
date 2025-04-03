@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Nivel2.unity
     guid: f80a2133c8f5c7c45a2577f316aa4f62
   - enabled: 1
+    path: Assets/Scenes/2ndCine.unity
+    guid: 930b1821682ace543a6510b5af3cef9e
+  - enabled: 1
     path: Assets/Scenes/Nivel3HUD.unity
     guid: e40dc8353130cec44b0a00cadb9ee8c3
   - enabled: 1

@@ -724,7 +724,10 @@ MonoBehaviour:
   healthPlayer: {fileID: 1319112582}
   healthText: {fileID: 127867110}
   PointText: {fileID: 1180421820}
+  tapeText: {fileID: 1047456744}
+  needleText: {fileID: 1684787747}
   infoBuyText: {fileID: 2034124573}
+  playerWeapon: {fileID: 1319112589}
 --- !u!114 &127867110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -855,6 +858,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1076858810}
+  - {fileID: 1047456743}
   m_Father: {fileID: 766295889}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -2851,8 +2855,6 @@ RectTransform:
   m_Children:
   - {fileID: 156728706}
   - {fileID: 2054135824}
-  - {fileID: 1047456743}
-  - {fileID: 1684787746}
   - {fileID: 1342910693}
   - {fileID: 801326215}
   - {fileID: 127867108}
@@ -4332,11 +4334,11 @@ RectTransform:
   m_LocalScale: {x: 1.2278957, y: 1.3809458, z: 1.3809458}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 766295889}
+  m_Father: {fileID: 156728706}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 731.0999, y: -167.6}
+  m_AnchoredPosition: {x: 161.8999, y: -4.8999786}
   m_SizeDelta: {x: 199.85, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1047456744
@@ -4359,7 +4361,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5488,7 +5490,10 @@ MonoBehaviour:
   healthPlayer: {fileID: 1319112582}
   healthText: {fileID: 127867110}
   PointText: {fileID: 1180421820}
+  tapeText: {fileID: 1047456744}
+  needleText: {fileID: 1684787747}
   infoBuyText: {fileID: 2034124573}
+  playerWeapon: {fileID: 1319112589}
 --- !u!114 &1319112589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5501,11 +5506,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e6ed2ea7c57b3642ab40b6217c22c81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 2190468755835812738, guid: 1c1b21a9a56475145984f1f14a2e2c40, type: 3}
+  tapePrefab: {fileID: 2190468755835812738, guid: 1c1b21a9a56475145984f1f14a2e2c40, type: 3}
   firepoint: {fileID: 1242520747}
   bulletSpeed: 100
   playerSprite: {fileID: 1319112584}
   shootCooldown: 0.5
+  needlePrefab: {fileID: 5662828879435730936, guid: 4f5ede3d254508b4caa07130a8bf11f8, type: 3}
 --- !u!135 &1319112590
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -6240,11 +6246,11 @@ RectTransform:
   m_LocalScale: {x: 1.2278957, y: 1.3809458, z: 1.3809458}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 766295889}
+  m_Father: {fileID: 2054135824}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 837.80005, y: -167.6}
+  m_AnchoredPosition: {x: 162.09998, y: -4.8999786}
   m_SizeDelta: {x: 199.85, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1684787747
@@ -6267,7 +6273,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -8908,6 +8914,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 74762229}
+  - {fileID: 1684787746}
   m_Father: {fileID: 766295889}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}

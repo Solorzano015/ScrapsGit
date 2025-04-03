@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Points : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class Points : MonoBehaviour
     public TextMeshProUGUI healthText;
     public TextMeshProUGUI PointText;
 
+    public TextMeshProUGUI tapeText;
+    public TextMeshProUGUI needleText;
+
     //shop variables
     private int numNeedles = 0;
     private int numTapes = 0;
@@ -20,6 +24,8 @@ public class Points : MonoBehaviour
     private int costTapes = 1;
 
     public TextMeshProUGUI infoBuyText;
+
+    public Weapon playerWeapon;
 
     private void Start()
     {
@@ -33,7 +39,15 @@ public class Points : MonoBehaviour
     }
     private void UpdateHealthUI()
     {
-        healthText.text = healthPlayer.health.ToString() + "/" + healthPlayer.MaxHealth;
+        int currentLevel = SceneManager.GetActiveScene().buildIndex; // Obtiene el nivel actual
+
+        if (currentLevel < 6)
+        {
+            needleText.gameObject.SetActive(false); // Oculta el texto de las Needles
+        }
+
+        healthPlayer.health = healthPlayer.MaxHealth;
+        UpdateHealthUI();
     }
     public void buyNeedle()
     {
@@ -42,6 +56,8 @@ public class Points : MonoBehaviour
             numNeedles ++;
             springs -= costNeedles;
             infoBuyText.text =  numNeedles + "Buyed Needle/s and" + springs + "Springs left";
+
+            playerWeapon.needlePrefab = Resources.Load<GameObject>("NeedleBullet");
         }
         else
         {
@@ -55,6 +71,9 @@ public class Points : MonoBehaviour
             numTapes++;
             springs -= costTapes;
             infoBuyText.text = numTapes + "Buyed Tape/s and" + springs + "Springs left";
+
+            playerWeapon.tapePrefab = Resources.Load<GameObject>("TapeBullet");
+
         }
         else
         {
