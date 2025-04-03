@@ -306,7 +306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   springs: 0
-  healthPlayer: {fileID: 0}
+  healthPlayer: {fileID: 273841169}
   healthText: {fileID: 35962804}
   PointText: {fileID: 1286631495}
   infoBuyText: {fileID: 1954085253}
@@ -1220,7 +1220,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   MaxHealth: 5
-  deathScreen: {fileID: 0}
+  deathScreen: {fileID: 289203740}
   playerController: {fileID: 273841170}
 --- !u!114 &273841170
 MonoBehaviour:
@@ -1385,9 +1385,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   springs: 0
   healthPlayer: {fileID: 273841169}
-  healthText: {fileID: 0}
-  PointText: {fileID: 0}
-  infoBuyText: {fileID: 0}
+  healthText: {fileID: 35962804}
+  PointText: {fileID: 1286631495}
+  infoBuyText: {fileID: 1954085253}
 --- !u!114 &273841176
 MonoBehaviour:
   m_ObjectHideFlags: 0
