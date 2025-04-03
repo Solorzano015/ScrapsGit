@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+    public static Weapon instance;
+
     public GameObject bulletPrefab;
     public Transform firepoint;
     public float bulletSpeed = 10f;
@@ -10,9 +12,33 @@ public class Weapon : MonoBehaviour
     private bool canShoot = true;
     public float shootCooldown = 0.5f;
 
+    /*
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+    }
+
+    /* arma como prefs para que se mantenga en las demas escenas (no funciono)
+    private void Start()
+    {
+
+        if(PlayerPrefs.GetInt("hasWeapon", 0)== 1)
+        {
+            hasWeapon = true;
+        }
+        
+    }
+    */
+
     public void PickUpWeapon()
     {
         hasWeapon = true;
+        PlayerPrefs.SetInt("HasWeapon", 1);
+        PlayerPrefs.Save();
     }
 
     void Update()
