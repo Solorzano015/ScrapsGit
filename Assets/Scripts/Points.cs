@@ -5,17 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Points : MonoBehaviour
 {
-    public int springs= 0;
-
-    public HealthControl healthPlayer;
-    
-
-    public TextMeshProUGUI healthText;
-    public TextMeshProUGUI PointText;
-
-    public TextMeshProUGUI tapeText;
-    public TextMeshProUGUI needleText;
-
+   
     //shop variables
     private int numNeedles = 0;
     private int numTapes = 0;
@@ -24,18 +14,16 @@ public class Points : MonoBehaviour
     private int costTapes = 1;
 
     public TextMeshProUGUI infoBuyText;
-
     public Weapon playerWeapon;
+
+    public UIPrincipio uiPrincipio;
 
     private void Start()
     {
-        healthPlayer.health = healthPlayer.MaxHealth;
-        UpdateHealthUI();
-    }
-
-    private void Update()
-    {
-        UpdateHealthUI();
+        if (uiPrincipio == null)
+        {
+            uiPrincipio = FindAnyObjectByType<UIPrincipio>();
+        }
     }
     private void UpdateHealthUI()
     {
@@ -46,16 +34,15 @@ public class Points : MonoBehaviour
          //   needleText.gameObject.SetActive(false); // Oculta el texto de las Needles
        // }
 
-        healthPlayer.health = healthPlayer.MaxHealth;
-        UpdateHealthUI();
+       
     }
     public void buyNeedle()
     {
-        if (springs >= costNeedles)
+        if (uiPrincipio.springs >= costNeedles)
         {
             numNeedles ++;
-            springs -= costNeedles;
-            infoBuyText.text =  numNeedles + "Buyed Needle/s and" + springs + "Springs left";
+            uiPrincipio.springs -= costNeedles;
+            infoBuyText.text =  numNeedles + "Buyed Needle/s and" + uiPrincipio.springs + "Springs left";
 
             playerWeapon.needlePrefab = Resources.Load<GameObject>("NeedleBullet");
         }
@@ -66,11 +53,11 @@ public class Points : MonoBehaviour
     }
     public void buyTape()
     {
-        if (springs >= costTapes)
+        if (uiPrincipio.springs >= costTapes)
         {
             numTapes++;
-            springs -= costTapes;
-            infoBuyText.text = numTapes + "Buyed Tape/s and" + springs + "Springs left";
+            uiPrincipio.springs -= costTapes;
+            infoBuyText.text = numTapes + "Buyed Tape/s and" + uiPrincipio.springs + "Springs left";
 
             playerWeapon.tapePrefab = Resources.Load<GameObject>("TapeBullet");
 

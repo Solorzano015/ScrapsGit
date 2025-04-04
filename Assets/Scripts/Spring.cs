@@ -5,20 +5,24 @@ using System.Collections.Generic;
 public class Spring : MonoBehaviour
 {
     public int valor = 1; // 1 resorte
+    private bool isCollected = false;
+
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            
-            Points control = other.GetComponent<Points>();
+            isCollected = true;
+            UIPrincipio uiPrincipio = other.GetComponentInChildren<UIPrincipio>();
 
-            if (control != null) // Verificar que el Player tiene el script Points
+            if (uiPrincipio != null)
             {
-                control.springs += valor;
-                control.PointText.text = control.springs.ToString();
-                Destroy(gameObject);
+                Debug.Log($"El jugador ha recogido un resorte en: {gameObject.name}");
+                uiPrincipio.AddSpring(valor);
             }
+            
+            gameObject.SetActive(false);
+            Destroy(gameObject);
         }
     }
 }

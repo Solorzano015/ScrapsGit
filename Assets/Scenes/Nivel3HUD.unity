@@ -720,14 +720,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 775c8e09826321746a9a0ebd808d76a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  springs: 0
-  healthPlayer: {fileID: 1319112582}
-  healthText: {fileID: 127867110}
-  PointText: {fileID: 1180421820}
-  tapeText: {fileID: 1047456744}
-  needleText: {fileID: 1684787747}
   infoBuyText: {fileID: 2034124573}
   playerWeapon: {fileID: 1319112589}
+  uiPrincipio: {fileID: 0}
 --- !u!114 &127867110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5301,7 +5296,6 @@ GameObject:
   - component: {fileID: 1319112582}
   - component: {fileID: 1319112584}
   - component: {fileID: 1319112589}
-  - component: {fileID: 1319112588}
   m_Layer: 0
   m_Name: Character
   m_TagString: Player
@@ -5474,26 +5468,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &1319112588
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1319112581}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 775c8e09826321746a9a0ebd808d76a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  springs: 0
-  healthPlayer: {fileID: 1319112582}
-  healthText: {fileID: 127867110}
-  PointText: {fileID: 1180421820}
-  tapeText: {fileID: 1047456744}
-  needleText: {fileID: 1684787747}
-  infoBuyText: {fileID: 2034124573}
-  playerWeapon: {fileID: 1319112589}
 --- !u!114 &1319112589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6968,14 +6942,14 @@ RectTransform:
   m_GameObject: {fileID: 1833304224}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.4331, y: 1.4331, z: 1.4331}
+  m_LocalScale: {x: 1.293774, y: 1.293774, z: 1.293774}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 199950041}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -189, y: 39}
+  m_AnchoredPosition: {x: -189, y: 46.6}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1833304226
