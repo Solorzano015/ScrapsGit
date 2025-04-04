@@ -1994,7 +1994,6 @@ GameObject:
   - component: {fileID: 729762819}
   - component: {fileID: 729762816}
   - component: {fileID: 729762818}
-  - component: {fileID: 729762822}
   - component: {fileID: 729762825}
   m_Layer: 0
   m_Name: Character
@@ -2168,24 +2167,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &729762822
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 729762815}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e6ed2ea7c57b3642ab40b6217c22c81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tapePrefab: {fileID: 2190468755835812738, guid: 1c1b21a9a56475145984f1f14a2e2c40, type: 3}
-  firepoint: {fileID: 1779415730}
-  bulletSpeed: 100
-  playerSprite: {fileID: 729762818}
-  shootCooldown: 0.5
-  needlePrefab: {fileID: 5662828879435730936, guid: 4f5ede3d254508b4caa07130a8bf11f8, type: 3}
 --- !u!135 &729762824
 SphereCollider:
   m_ObjectHideFlags: 0

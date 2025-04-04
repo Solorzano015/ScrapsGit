@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float damage = 1f;  // Daño
+    public float damage;  // Daño
     public float lifeTime = 3f;  // Tiempo antes de que la bala se destruya automáticamente
 
     void Start()
@@ -12,12 +12,17 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // Verificar si golpea a un enemigo
-        EnemyG enemy = other.GetComponent<EnemyG>();
-        if (enemy != null)
+        if (other.CompareTag("Enemy")) // Verifica si golpeó a un enemigo
         {
-            enemy.TakeDamage(damage);  // Restar vida al enemigo
-            Destroy(gameObject);  // Destruir la bala
+            EnemyG enemy = other.GetComponent<EnemyG>();
+
+            if (enemy != null)
+            {
+                enemy.TakeDamage(damage);
+                Debug.Log($"Disparo impactó en {other.gameObject.name}, causando {damage} de daño");
+            }
+
+            Destroy(gameObject); // Destruye la bala al impactar
         }
     }
 }

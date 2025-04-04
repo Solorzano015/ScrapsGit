@@ -1,6 +1,15 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
+public class WeaponTape : MonoBehaviour
+{
+   
+}
+
+
+/*
+
 public class Weapon : MonoBehaviour
 {
     public static Weapon instance;
@@ -47,7 +56,7 @@ public class Weapon : MonoBehaviour
         }
         
     }
-    */
+    
     public void Start()
     {
        // int currentLevel = SceneManager.GetActiveScene().buildIndex; // Obtiene el nivel actual
@@ -141,7 +150,7 @@ public class Weapon : MonoBehaviour
 }
 
 
-/*
+
 public class Weapon : MonoBehaviour
 {
     public GameObject bulletPrefab;

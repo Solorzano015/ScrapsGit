@@ -14,7 +14,8 @@ public class Points : MonoBehaviour
     private int costTapes = 1;
 
     public TextMeshProUGUI infoBuyText;
-    public Weapon playerWeapon;
+    public TapeWeapon tapeWeapon;
+    public NeedleWeapon needleWeapon;
 
     public UIPrincipio uiPrincipio;
 
@@ -44,7 +45,7 @@ public class Points : MonoBehaviour
             uiPrincipio.springs -= costNeedles;
             infoBuyText.text =  numNeedles + "Buyed Needle/s and" + uiPrincipio.springs + "Springs left";
 
-            playerWeapon.needlePrefab = Resources.Load<GameObject>("NeedleBullet");
+            needleWeapon.needlePrefab = Resources.Load<GameObject>("NeedleBullet");
         }
         else
         {
@@ -59,7 +60,7 @@ public class Points : MonoBehaviour
             uiPrincipio.springs -= costTapes;
             infoBuyText.text = numTapes + "Buyed Tape/s and" + uiPrincipio.springs + "Springs left";
 
-            playerWeapon.tapePrefab = Resources.Load<GameObject>("TapeBullet");
+            tapeWeapon.tapePrefab = Resources.Load<GameObject>("TapeBullet");
 
         }
         else
