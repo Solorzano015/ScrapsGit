@@ -50,17 +50,17 @@ public class Weapon : MonoBehaviour
     */
     public void Start()
     {
-        int currentLevel = SceneManager.GetActiveScene().buildIndex; // Obtiene el nivel actual
+       // int currentLevel = SceneManager.GetActiveScene().buildIndex; // Obtiene el nivel actual
 
         // Solo agregar la aguja si el nivel es 3 o superior
-        if (currentLevel >= 6)
-        {
+        //if (currentLevel >= 6)
+        //{
             bullets = new GameObject[] { tapePrefab, needlePrefab }; // Ambas balas disponibles
-        }
-        else
-        {
-            bullets = new GameObject[] { tapePrefab }; // Solo la Tape
-        }
+        //}
+        //else
+        //{
+        //    bullets = new GameObject[] { tapePrefab }; // Solo la Tape
+       // }
 
         if (PlayerPrefs.GetInt("HasWeapon", 0) == 1)
         {

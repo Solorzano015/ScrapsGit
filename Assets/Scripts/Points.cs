@@ -39,12 +39,12 @@ public class Points : MonoBehaviour
     }
     private void UpdateHealthUI()
     {
-        int currentLevel = SceneManager.GetActiveScene().buildIndex; // Obtiene el nivel actual
+        //int currentLevel = SceneManager.GetActiveScene().buildIndex; // Obtiene el nivel actual
 
-        if (currentLevel < 6)
-        {
-            needleText.gameObject.SetActive(false); // Oculta el texto de las Needles
-        }
+        //if (currentLevel < 6)
+       // {
+         //   needleText.gameObject.SetActive(false); // Oculta el texto de las Needles
+       // }
 
         healthPlayer.health = healthPlayer.MaxHealth;
         UpdateHealthUI();

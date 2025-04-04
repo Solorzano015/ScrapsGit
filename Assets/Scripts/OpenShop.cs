@@ -9,19 +9,19 @@ public class OpenShop : MonoBehaviour
     void Start()
     {
 
-        int currentLevel = SceneManager.GetActiveScene().buildIndex; // Obtiene el nivel actual
+        //int currentLevel = SceneManager.GetActiveScene().buildIndex; // Obtiene el nivel actual
 
         shop = GameObject.Find("ShopCanvas");
 
-        if (currentLevel < 6)
-        {
+        //if (currentLevel < 6)
+        //{
             shop.SetActive(false); // La tienda no aparece antes del nivel 3
             Destroy(gameObject); // Elimina el objeto de la tienda en niveles inferiores
-        }
-        else
-        {
-            shop.SetActive(false);
-        }
+        //}
+        //else
+       // {
+        //    shop.SetActive(false);
+        //}
 
     }
 
