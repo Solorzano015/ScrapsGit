@@ -5,10 +5,10 @@ using UnityEngine.UI;
 public class VolumeEdit : MonoBehaviour
 {
 
-    public Slider slider;
+    public Slider slider; //llamar el slider
     public float sliderValue;
-    public Image imageM;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public Image imageM; //imagen de mute
+    
     void Start()
     {
         slider.value = PlayerPrefs.GetFloat("volumenAudio", 0.5f);
