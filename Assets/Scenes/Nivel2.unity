@@ -1021,7 +1021,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cdba0c950876544e8cff0735c58b9f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Nivel3HUD
+  sceneName: 2ndCine
 --- !u!65 &369729771
 BoxCollider:
   m_ObjectHideFlags: 0

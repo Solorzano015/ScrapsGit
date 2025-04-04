@@ -37,15 +37,15 @@ public class TapeWeapon : MonoBehaviour
     {
         hasWeapon = true;
         
-        if (tapeAText != null)
+        if (tapeAText != null) //poner texto del arma
         {
-            tapeAText.gameObject.SetActive(true); // Ocultar el texto de munición al inicio
+            tapeAText.gameObject.SetActive(true);
         }
-        if (tapeWUI != null)
+        if (tapeWUI != null) //poner la imagen del arma
         {
             tapeWUI.SetActive(true);
         }
-        UpdateUI();
+        UpdateUI(); //se llama a funcion para que se actualice la ui
     }
 
     public void AddAmmo(int amount)
@@ -54,7 +54,7 @@ public class TapeWeapon : MonoBehaviour
         //info de cuantas tienes
     }
 
-    void Update()
+    void Update() //boton para disparar
     {
         if (hasWeapon && ammoCount > 0 && Input.GetKeyDown(KeyCode.E))
         {
@@ -65,7 +65,7 @@ public class TapeWeapon : MonoBehaviour
     void Shoot()
     {
 
-        if (ammoCount <= 0)
+        if (ammoCount <= 0) //por si queda sin municion
         {
             Debug.Log("Sin munición. Compra más en la tienda.");
             return;
@@ -97,7 +97,7 @@ public class TapeWeapon : MonoBehaviour
     {
         if (tapeAText != null)
         {
-            tapeAText.text = "" + ammoCount;
+            tapeAText.text = "" + ammoCount; //mantener actualizado el texto con el ammo amount
         }
     }
 }

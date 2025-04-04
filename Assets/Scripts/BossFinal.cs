@@ -5,8 +5,8 @@ public class BossFinal : MonoBehaviour
 {
     public GameObject BossWeaponPrefab;
     public Transform firepoint;
-    public float bulletSpeed = 14f;
-    public float bulletLifetime = 4f;
+    public float bulletSpeed = 30f;
+    public float bulletLifetime = 16f;
 
     private Transform player;
     private List<Vector3> playerPositions = new List<Vector3>(); //almacenar la ultima posicion del jugador 
@@ -50,6 +50,12 @@ public class BossFinal : MonoBehaviour
                 bulletRB.useGravity = false;
                 Vector3 direction = (targetPos - firepoint.position).normalized;
                 bulletRB.velocity = direction * bulletSpeed;
+            }
+
+            BossBullet bossBullet = bullet.GetComponent<BossBullet>();
+            if (bossBullet != null)
+            {
+                bossBullet.damage = 1f; // Puedes ajustar esto
             }
 
             Destroy(bullet, bulletLifetime); // destruir después de X segundos
