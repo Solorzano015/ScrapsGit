@@ -14,15 +14,18 @@ public class KeyObstacle : MonoBehaviour
             Destroy(other.gameObject);
             Debug.Log("Llave Recogida");
 
-        }
+        }                    
 
-        if (other.CompareTag("ObstacleKey") && hasKey)
+
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("ObstacleKey") && hasKey)
         {
-            Destroy(other.gameObject);
+            Destroy(collision.gameObject);
             Debug.Log("Puertadesbloqueada");
         }
-        
-
 
     }
 }
