@@ -2,33 +2,35 @@ using UnityEngine;
 
 public class ShowInfoUI : MonoBehaviour
 {
-    public GameObject InfoUIObject;
+    public GameObject infoUI1;
+    public GameObject infoUI2;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        infoUI1 = GameObject.Find("InfoUI1");
+        infoUI2 = GameObject.Find("InfoUI2");
 
-        InfoUIObject = GameObject.Find("UInewInfo");
-        InfoUIObject.SetActive(false);
-
+        if (infoUI1 != null) infoUI1.SetActive(false);
+        if (infoUI2 != null) infoUI2.SetActive(false);
     }
 
-    // Update is called once per frame
     private void OnTriggerEnter(Collider col)
     {
-
-        if (col.gameObject.tag == "Player")
+        if (col.CompareTag("Player"))
         {
-            InfoUIObject.SetActive(true);
+            if (infoUI1 != null) infoUI1.SetActive(true);
+            if (infoUI2 != null) infoUI2.SetActive(true);
         }
-
     }
+
+    
 
     private void OnTriggerExit(Collider col)
     {
         if (col.gameObject.tag == "Player")
         {
-            InfoUIObject.SetActive(false);
+            if (infoUI1 != null) infoUI1.SetActive(false);
+            if (infoUI2 != null) infoUI2.SetActive(false);
         }
     }
 }

@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TapeWeapon : MonoBehaviour
 {
@@ -10,12 +11,36 @@ public class TapeWeapon : MonoBehaviour
     public SpriteRenderer playerSprite;
     public Animator weaponAnimator; // Agregar Animator para el arma
 
-    public int ammoCount = 0; //disparos disponibles
+    public int ammoCount = 15; //disparos disponibles
     public TextMeshProUGUI tapeAText;
+    public GameObject tapeWUI;
+
+    private void Start()
+    {
+        
+        if (tapeWUI != null)
+        {
+            tapeWUI.SetActive(false);
+        }
+        if (tapeAText != null)
+        {
+            tapeAText.gameObject.SetActive(false); // Ocultar el texto de munición al inicio
+        }
+        UpdateUI();
+
+        Debug.Log("Tape Weapon en: " + gameObject.scene.name + "posicion: " + transform.position);
+
+        
+    }
 
     public void PickUpWeapon()
     {
         hasWeapon = true;
+        
+        if (tapeAText != null)
+        {
+            tapeAText.gameObject.SetActive(true); // Ocultar el texto de munición al inicio
+        }
         UpdateUI();
     }
 
