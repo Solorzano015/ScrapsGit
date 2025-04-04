@@ -508,7 +508,7 @@ Transform:
   m_GameObject: {fileID: 140733264}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 595.8, y: 490.9, z: 910.7}
+  m_LocalPosition: {x: 505.6, y: 479.8, z: 910.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1989,7 +1989,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 448
-  Respawn: {fileID: 0}
+  Respawn: {fileID: 140733265}
   spriteRenderer: {fileID: 729762818}
   maxGlideTime: 1
 --- !u!212 &729762818
@@ -5957,16 +5957,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: 0862429f3429d2847a97d086e4c871e7, type: 3}
-        m_TargetAssemblyTypeName: UnityEngine.Object, UnityEngine
-        m_MethodName: 
-        m_Mode: 5
+      - m_Target: {fileID: 1645011999}
+        m_TargetAssemblyTypeName: DeathScreenManager, Assembly-CSharp
+        m_MethodName: OnRetryButtonPressed
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: OnRetryButtonPressed
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1633047283
@@ -8577,11 +8577,11 @@ RectTransform:
   - {fileID: 2045598479}
   - {fileID: 1084440553}
   - {fileID: 348922504}
-  - {fileID: 1645011998}
   - {fileID: 1775951498}
   - {fileID: 2135879221}
   - {fileID: 85671836}
   - {fileID: 1823258627}
+  - {fileID: 1645011998}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
