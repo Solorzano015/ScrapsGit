@@ -41,6 +41,10 @@ public class NeedleWeapon : MonoBehaviour
         {
             needleAText.gameObject.SetActive(true); // Ocultar el texto de munición al inicio
         }
+        if (needleWUI != null)
+        {
+            needleWUI.SetActive(true);
+        }
         UpdateUI();
     }
 
@@ -52,7 +56,7 @@ public class NeedleWeapon : MonoBehaviour
 
     void Update()
     {
-        if (hasWeapon && ammoCount > 0 && Input.GetKeyDown(KeyCode.E))
+        if (hasWeapon && ammoCount > 0 && Input.GetKeyDown(KeyCode.Q))
         {
             ShootNeedle();
         }

@@ -41,6 +41,10 @@ public class TapeWeapon : MonoBehaviour
         {
             tapeAText.gameObject.SetActive(true); // Ocultar el texto de munición al inicio
         }
+        if (tapeWUI != null)
+        {
+            tapeWUI.SetActive(true);
+        }
         UpdateUI();
     }
 

@@ -32,7 +32,7 @@ public class Points : MonoBehaviour
     {
         if (uiPrincipio.springs >= costNeedles)
         {
-            //numNeedles ++;
+            numNeedles += 2;
             uiPrincipio.springs -= costNeedles;
             infoBuyText.text =  numNeedles + "Buyed Needle/s and" + uiPrincipio.springs + "Springs left";
 
@@ -54,7 +54,7 @@ public class Points : MonoBehaviour
     {
         if (uiPrincipio.springs >= costTapes)
         {
-            //numTapes++;
+            numTapes += 3;
             uiPrincipio.springs -= costTapes;
             infoBuyText.text = numTapes + "Buyed Tape/s and" + uiPrincipio.springs + "Springs left";
 
