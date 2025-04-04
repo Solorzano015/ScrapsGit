@@ -2478,7 +2478,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d35d3a0b61f265469ac5985a8446bac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  springs: 40
+  springs: 0
   healthPlayer: {fileID: 684275622}
   healthText: {fileID: 835154159}
   springsText: {fileID: 2058961528}
@@ -2714,7 +2714,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44e02cc45819b7044aae183102d4b61d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasKey: 1
+  hasKey: 0
 --- !u!1001 &728364671
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4702,8 +4702,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.60518044, y: 0.098563135, z: 0.41042465}
-  m_Center: {x: 0.013812897, y: 0.04928127, z: -0.0011603376}
+  m_Size: {x: 0.60518044, y: 0.11409844, z: 0.41042465}
+  m_Center: {x: 0.013812897, y: 0.057048924, z: -0.0011603376}
 --- !u!1 &1097607228
 GameObject:
   m_ObjectHideFlags: 0

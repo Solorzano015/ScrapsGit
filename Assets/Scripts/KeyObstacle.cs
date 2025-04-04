@@ -21,11 +21,19 @@ public class KeyObstacle : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("ObstacleKey") && hasKey)
+        if (collision.gameObject.CompareTag("ObstacleKey"))
         {
-            Destroy(collision.gameObject);
-            Debug.Log("Puertadesbloqueada");
+            if (hasKey == true)
+            {
+                Destroy(collision.gameObject);
+                Debug.Log("Puertadesbloqueada");
+            }
+            else
+            {
+                Debug.Log("No tienes la llave");
+            }
         }
+        
 
     }
 }
