@@ -2,21 +2,29 @@ using UnityEngine;
 
 public class PickUpWeapon : MonoBehaviour
 {
+
+    public int ammoGiven;
+    public GameObject tapeWUI;
+    //public int noooo;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player")) // Asegura que es el jugador
+        if (other.CompareTag("Player")) // Tag para que sea el jugador que lo toque
         {
-            TapeWeapon weapon = other.GetComponentInChildren<TapeWeapon>(); // Busca en los hijos del jugador
+            TapeWeapon weapon = other.GetComponentInChildren<TapeWeapon>(); // encuentre el script del arma
             if (weapon != null)
             {
                 weapon.PickUpWeapon();
-                Debug.Log("Arma recogida: Tape Weapon");
+                weapon.AddAmmo(ammoGiven);
+
+                if (tapeWUI != null)
+                {
+                    tapeWUI.SetActive(true); // Activa la UI del arma
+                }
+
+                Debug.Log("Arma recogida: Tape Weapon"); 
                 Destroy(gameObject);
             }
-            else
-            {
-                Debug.LogWarning("El jugador no tiene un TapeWeapon adjunto.");
-            }
+            
         }
     }
 }

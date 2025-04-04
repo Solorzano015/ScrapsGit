@@ -19,6 +19,8 @@ public class Points : MonoBehaviour
 
     public UIPrincipio uiPrincipio;
 
+    
+
     private void Start()
     {
         if (uiPrincipio == null)
