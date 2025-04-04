@@ -16,7 +16,6 @@ public class Points : MonoBehaviour
     public TextMeshProUGUI infoBuyText;
     public TapeWeapon tapeWeapon;
     public NeedleWeapon needleWeapon;
-
     public UIPrincipio uiPrincipio;
 
     
@@ -28,26 +27,23 @@ public class Points : MonoBehaviour
             uiPrincipio = FindAnyObjectByType<UIPrincipio>();
         }
     }
-    private void UpdateHealthUI()
-    {
-        //int currentLevel = SceneManager.GetActiveScene().buildIndex; // Obtiene el nivel actual
-
-        //if (currentLevel < 6)
-       // {
-         //   needleText.gameObject.SetActive(false); // Oculta el texto de las Needles
-       // }
-
-       
-    }
+    
     public void buyNeedle()
     {
         if (uiPrincipio.springs >= costNeedles)
         {
-            numNeedles ++;
+            //numNeedles ++;
             uiPrincipio.springs -= costNeedles;
             infoBuyText.text =  numNeedles + "Buyed Needle/s and" + uiPrincipio.springs + "Springs left";
 
             needleWeapon.needlePrefab = Resources.Load<GameObject>("NeedleBullet");
+
+            if (needleWeapon != null)
+            {
+                needleWeapon.needlePrefab = Resources.Load<GameObject>("NeedleBullet");
+                needleWeapon.AddAmmo(2); // Por ejemplo, añade 5 disparos
+                needleWeapon.PickUpWeapon();
+            }
         }
         else
         {
@@ -58,11 +54,18 @@ public class Points : MonoBehaviour
     {
         if (uiPrincipio.springs >= costTapes)
         {
-            numTapes++;
+            //numTapes++;
             uiPrincipio.springs -= costTapes;
             infoBuyText.text = numTapes + "Buyed Tape/s and" + uiPrincipio.springs + "Springs left";
 
             tapeWeapon.tapePrefab = Resources.Load<GameObject>("TapeBullet");
+
+            if (tapeWeapon != null)
+            {
+                tapeWeapon.tapePrefab = Resources.Load<GameObject>("TapeBullet");
+                tapeWeapon.AddAmmo(3); // Por ejemplo, añade 5 disparos
+                tapeWeapon.PickUpWeapon();
+            }
 
         }
         else
