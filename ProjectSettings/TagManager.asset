@@ -6,6 +6,7 @@ TagManager:
   tags:
   - isGround
   - obstaculo
+  - Enemy
   layers:
   - Default
   - TransparentFX

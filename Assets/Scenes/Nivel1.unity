@@ -1378,8 +1378,9 @@ GameObject:
   - component: {fileID: 593258317}
   - component: {fileID: 593258316}
   - component: {fileID: 593258315}
-  - component: {fileID: 593258318}
   - component: {fileID: 593258319}
+  - component: {fileID: 593258320}
+  - component: {fileID: 593258321}
   m_Layer: 0
   m_Name: TapeWeapon
   m_TagString: Untagged
@@ -1479,18 +1480,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &593258318
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 593258314}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a43cfa26ad298c647ab1f0f257ab51ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!135 &593258319
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1512,6 +1501,35 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 4.59
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &593258320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 593258314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 193f80e3b9dbbc94fac68348c235f49d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tapePrefab: {fileID: 2190468755835812738, guid: 1c1b21a9a56475145984f1f14a2e2c40, type: 3}
+  firepoint: {fileID: 1779415730}
+  bulletSpeed: 10
+  playerSprite: {fileID: 729762818}
+  weaponAnimator: {fileID: 593258315}
+--- !u!114 &593258321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 593258314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a43cfa26ad298c647ab1f0f257ab51ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &607820309
 GameObject:
   m_ObjectHideFlags: 0
@@ -1995,6 +2013,7 @@ GameObject:
   - component: {fileID: 729762816}
   - component: {fileID: 729762818}
   - component: {fileID: 729762825}
+  - component: {fileID: 729762826}
   m_Layer: 0
   m_Name: Character
   m_TagString: Player
@@ -2204,6 +2223,23 @@ MonoBehaviour:
   healthPlayer: {fileID: 729762816}
   healthText: {fileID: 1084440555}
   springsText: {fileID: 348922505}
+--- !u!114 &729762826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 729762815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 193f80e3b9dbbc94fac68348c235f49d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tapePrefab: {fileID: 2190468755835812738, guid: 1c1b21a9a56475145984f1f14a2e2c40, type: 3}
+  firepoint: {fileID: 1779415730}
+  bulletSpeed: 100
+  playerSprite: {fileID: 729762818}
+  weaponAnimator: {fileID: 593258315}
 --- !u!1 &752274203 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2623897755087046841, guid: d37ee7a4f13a3274ab87b21bd25bc78e, type: 3}
@@ -9129,6 +9165,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 346273159837713340, guid: 25c4a9021d787424e8fbe093c996d2d3, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3767328801292646154, guid: 25c4a9021d787424e8fbe093c996d2d3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 39.5

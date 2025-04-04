@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8261456346365267520}
   - component: {fileID: 6472449587732086422}
+  - component: {fileID: -2652135925708115213}
   m_Layer: 0
   m_Name: NeedleShoot
   m_TagString: Untagged
@@ -87,3 +88,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-2652135925708115213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5662828879435730936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f21351ec13ffad64baeaa85c0cabb851, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 2
+  lifeTime: 3
