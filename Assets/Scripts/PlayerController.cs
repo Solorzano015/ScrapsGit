@@ -99,10 +99,8 @@ public class PlayerController : MonoBehaviour
             spriteRenderer.flipX = false;
         }
 
-        if (hasWeapon && Input.GetKeyDown(KeyCode.E) && !isShooting) //animacion disparo de personaje 
+        if (hasWeapon && (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.E)) && !isShooting) //para las dos animaciones, aguja y cinta
         {
-            //animator.SetTrigger("Shooting"); //(no funciono)
-            //animator.SetBool("Shooting", true);
             StartCoroutine(ShootAnimation());
         }
 

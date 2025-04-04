@@ -18,6 +18,9 @@ public class TapeRespawner : MonoBehaviour
             case "Nivel2":
                 transform.position = new Vector3(343f, 54f, 238f);
                 break;
+            case "Nivel3HUD":
+                transform.position = new Vector3(491f, 139f, 137f);
+                break;
         }
 
         
