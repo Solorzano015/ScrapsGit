@@ -1,7 +1,9 @@
 using System.IO;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering;
+using static UnityEngine.SpriteMask;
 
 public class PlayerController : MonoBehaviour
 {
@@ -33,13 +35,40 @@ public class PlayerController : MonoBehaviour
     private bool hasWeapon = false;
     private bool isShooting = false;
 
-    
 
+    // Audio
+    public AudioClip jumpSound;
+    public AudioClip attackSound;
+    public AudioClip glideSound;
+    public AudioClip backgroundMusic;
+    public AudioClip walkingSound;
+
+    private AudioSource sfxSource;
+    private AudioSource musicSource;
+    private AudioSource walkingSource;
+
+    // Para control de reproducción del sonido de planeo
+    private bool isGlideSoundPlaying = false;
+
+    // Referencia opcional al sistema de salud
+    public HealthControl healthControl;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.useGravity = false;
+
+        sfxSource = gameObject.AddComponent<AudioSource>();
+        musicSource = gameObject.AddComponent<AudioSource>();
+
+        walkingSource = gameObject.AddComponent<AudioSource>();
+        walkingSource.clip = walkingSound;
+        walkingSource.loop = true;
+        walkingSource.volume = 0.6f;
+        musicSource.clip = backgroundMusic;
+        musicSource.loop = true;
+        musicSource.volume = 0.5f;
+        musicSource.Play(); //reproducir musica base
     }
 
     void Update()
@@ -56,6 +85,17 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new Vector3(moveInput.x * speed, rb.velocity.y, moveInput.y * speed);
         Animation();
 
+        bool isWalking = moveInput.magnitude > 0.1f && isGrounded;
+
+        if (isWalking && !walkingSource.isPlaying)
+        {
+            walkingSource.Play();
+        }
+        else if (!isWalking && walkingSource.isPlaying)
+        {
+            walkingSource.Stop();
+        }
+
         isGrounded = Physics.Raycast(groundPoint.position, Vector3.down, groundDist, groundMask); //verificar qye esta en el suelo
 
 
@@ -68,7 +108,12 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("Jumping", true);
             Debug.Log("entrando de animacion de salto");
             StartCoroutine(ResetJumpAnimation());
-            
+
+            if (jumpSound != null) //sonido de saltar
+            {
+                sfxSource.PlayOneShot(jumpSound); //solo una vez
+            }
+
         }
         
 
@@ -82,11 +127,24 @@ public class PlayerController : MonoBehaviour
                 canGlide = false;
             }
             animator.SetBool("Gliding", true);
+
+            if (!isGlideSoundPlaying && glideSound != null) //sonido de habilidad
+            {
+                sfxSource.clip = glideSound;
+                sfxSource.loop = true;
+                sfxSource.Play();
+                isGlideSoundPlaying = true;
+            }
         }
         else
         {
             rb.velocity += Vector3.down * normalGravity * Time.deltaTime;
             animator.SetBool("Gliding", false);
+            if (isGlideSoundPlaying)
+            {
+                sfxSource.Stop();
+                isGlideSoundPlaying = false;
+            }
         }
 
         // Voltear sprite según dirección
@@ -104,7 +162,11 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(ShootAnimation());
         }
 
-
+        if (healthControl != null && healthControl.health <= 0 && musicSource.isPlaying)// llama a funcion para que fadeout la musica al morir
+        {
+            StartCoroutine(FadeOutMusic(2f)); // 
+            walkingSource.Stop();
+        }
 
     }
 
@@ -151,6 +213,12 @@ public class PlayerController : MonoBehaviour
 
         isShooting = true;
         animator.SetTrigger("Shooting");
+
+        if (attackSound != null)
+        {
+            sfxSource.PlayOneShot(attackSound);
+        }
+
         yield return new WaitForSeconds(0.5f); // tiempo de animacion
         isShooting = false;
         
@@ -165,9 +233,32 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void StopMusic()
+    {
+        if (musicSource != null && musicSource.isPlaying)
+        {
+            musicSource.Stop();
+        }
+    }
+    private System.Collections.IEnumerator FadeOutMusic(float duration)
+    {
+        float startVolume = musicSource.volume;
+
+        while (musicSource.volume > 0f)
+        {
+            musicSource.volume -= startVolume * Time.unscaledDeltaTime / duration;
+            yield return null;
+        }
+
+        musicSource.Stop();
+        musicSource.volume = startVolume; // opcional: resetea volumen para cuando reinicies el juego
+    }
+
     public void RespawnPlayer()
     {
         transform.position = Respawn.position;
+        musicSource.volume = 1f;
+        musicSource.Play();
     }
 
    

@@ -32,6 +32,7 @@ public class HealthControl : MonoBehaviour
 
     private void Die()
     {
+        playerController.StopMusic();
         deathScreen.SetActive(true);
         Time.timeScale = 0f;
     }
