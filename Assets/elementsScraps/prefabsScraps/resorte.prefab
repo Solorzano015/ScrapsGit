@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6885888211763376090}
   - component: {fileID: 4547982598693668891}
   - component: {fileID: 7264657407958521427}
-  - component: {fileID: 7947884279344262257}
+  - component: {fileID: -2861774407014463343}
   m_Layer: 0
   m_Name: resorte
   m_TagString: Untagged
@@ -148,7 +148,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.61695194
   m_Center: {x: -0.15732193, y: 0.17896366, z: 0}
---- !u!82 &7947884279344262257
+--- !u!82 &-2861774407014463343
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,16 +158,16 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 226d4fce158d4244aacd2bfe3947be43, type: 3}
+  m_Resource: {fileID: 8300000, guid: 226d4fce158d4244aacd2bfe3947be43, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 1.86
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 127
+  Priority: 128
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500

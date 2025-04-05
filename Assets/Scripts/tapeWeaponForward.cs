@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class tapeWeaponForward : MonoBehaviour
 {
+    [Header ("Settings Viewer")]
     public GameObject tapePrefab;
     public Transform firepoint;
     public float bulletSpeed = 10f;
@@ -10,6 +11,7 @@ public class tapeWeaponForward : MonoBehaviour
     public SpriteRenderer playerSprite;
     public Animator weaponAnimator; // Agregar Animator para el arma
 
+    [Header("Settings Weapon")]
     public int ammoCount = 15; //disparos disponibles
     public TextMeshProUGUI tapeAText;
     public GameObject tapeWUI;
@@ -80,11 +82,28 @@ public class tapeWeaponForward : MonoBehaviour
 
         if (tapePrefab != null && firepoint != null)
         {
-            GameObject bullet = Instantiate(tapePrefab, firepoint.forward, firepoint.rotation);
+            GameObject bullet = Instantiate(tapePrefab, firepoint.position, firepoint.rotation);
             Rigidbody bulletRB = bullet.GetComponent<Rigidbody>();
 
-            
+            if (bulletRB != null)
+            {
+                bulletRB.velocity = firepoint.forward * bulletSpeed;
+            }
+
+
         }
+    }
+    public bool BuyTapeAmmo(UIPrincipio uiPrincipio, int cost, int amount)
+    {
+        if (uiPrincipio.springs >= cost)
+        {
+            uiPrincipio.springs -= cost;
+            tapePrefab = Resources.Load<GameObject>("TapeBullet");
+            AddAmmo(amount);
+            PickUpWeapon();
+            return true;
+        }
+        return false;
     }
 
     private void UpdateUI()

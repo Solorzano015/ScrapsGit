@@ -480,6 +480,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: resorte (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4547982598693668891, guid: 9eef104c6bd0c87428ad4e5077647bf0, type: 3}
+      propertyPath: SpringSource
+      value: 
+      objectReference: {fileID: 524614992}
     - target: {fileID: 9018644720299495260, guid: 9eef104c6bd0c87428ad4e5077647bf0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 123.26999
@@ -1115,6 +1119,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4547982598693668891, guid: 9eef104c6bd0c87428ad4e5077647bf0, type: 3}
+      propertyPath: SpringSource
+      value: 
+      objectReference: {fileID: 524614992}
     - target: {fileID: 9018644720299495260, guid: 9eef104c6bd0c87428ad4e5077647bf0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2204,8 +2212,8 @@ GameObject:
   - component: {fileID: 524614983}
   - component: {fileID: 524614985}
   - component: {fileID: 524614990}
-  - component: {fileID: 524614989}
   - component: {fileID: 524614992}
+  - component: {fileID: 524614993}
   m_Layer: 0
   m_Name: Character
   m_TagString: Player
@@ -2384,26 +2392,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &524614989
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 524614982}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 193f80e3b9dbbc94fac68348c235f49d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tapePrefab: {fileID: 2190468755835812738, guid: 1c1b21a9a56475145984f1f14a2e2c40, type: 3}
-  firepoint: {fileID: 1024921411}
-  bulletSpeed: 100
-  playerSprite: {fileID: 524614985}
-  weaponAnimator: {fileID: 524614986}
-  ammoCount: 0
-  tapeAText: {fileID: 1006838461}
-  tapeWUI: {fileID: 458941766}
 --- !u!114 &524614990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2538,6 +2526,26 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &524614993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 524614982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ccda23a053af4f4c9fa50f75c10b680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tapePrefab: {fileID: 2190468755835812738, guid: 1c1b21a9a56475145984f1f14a2e2c40, type: 3}
+  firepoint: {fileID: 1024921411}
+  bulletSpeed: 100
+  playerSprite: {fileID: 524614985}
+  weaponAnimator: {fileID: 0}
+  ammoCount: 15
+  tapeAText: {fileID: 1006838461}
+  tapeWUI: {fileID: 458941766}
 --- !u!1 &533085945
 GameObject:
   m_ObjectHideFlags: 0
@@ -2746,6 +2754,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: resorte (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4547982598693668891, guid: 9eef104c6bd0c87428ad4e5077647bf0, type: 3}
+      propertyPath: SpringSource
+      value: 
+      objectReference: {fileID: 524614992}
     - target: {fileID: 9018644720299495260, guid: 9eef104c6bd0c87428ad4e5077647bf0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.2613525
@@ -3704,6 +3716,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: resorte (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 4547982598693668891, guid: 9eef104c6bd0c87428ad4e5077647bf0, type: 3}
+      propertyPath: SpringSource
+      value: 
+      objectReference: {fileID: 524614992}
     - target: {fileID: 9018644720299495260, guid: 9eef104c6bd0c87428ad4e5077647bf0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 106.899994
@@ -4520,6 +4536,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: resorte (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 4547982598693668891, guid: 9eef104c6bd0c87428ad4e5077647bf0, type: 3}
+      propertyPath: SpringSource
+      value: 
+      objectReference: {fileID: 524614992}
     - target: {fileID: 9018644720299495260, guid: 9eef104c6bd0c87428ad4e5077647bf0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 95.100006
@@ -4796,6 +4816,7 @@ GameObject:
   - component: {fileID: 838755056}
   - component: {fileID: 838755055}
   - component: {fileID: 838755061}
+  - component: {fileID: 838755062}
   m_Layer: 0
   m_Name: Tape
   m_TagString: Untagged
@@ -4810,7 +4831,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 838755054}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a43cfa26ad298c647ab1f0f257ab51ab, type: 3}
   m_Name: 
@@ -4962,6 +4983,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48f9f65e169c0bb45935643bbd15c690, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &838755062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 838755054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 531e04540e7bcba458d45c8e3fff55c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ammoGiven: 12
+  tapeWUI: {fileID: 838755054}
 --- !u!1 &856018757
 GameObject:
   m_ObjectHideFlags: 0
@@ -5329,23 +5364,27 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1983189047}
     m_Modifications:
     - target: {fileID: 1080040880958351534, guid: 9eef104c6bd0c87428ad4e5077647bf0, type: 3}
       propertyPath: m_Name
       value: resorte
       objectReference: {fileID: 0}
+    - target: {fileID: 4547982598693668891, guid: 9eef104c6bd0c87428ad4e5077647bf0, type: 3}
+      propertyPath: SpringSource
+      value: 
+      objectReference: {fileID: 524614992}
     - target: {fileID: 9018644720299495260, guid: 9eef104c6bd0c87428ad4e5077647bf0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 446.2003
+      value: 137.10028
       objectReference: {fileID: 0}
     - target: {fileID: 9018644720299495260, guid: 9eef104c6bd0c87428ad4e5077647bf0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 17.1
+      value: -439.16
       objectReference: {fileID: 0}
     - target: {fileID: 9018644720299495260, guid: 9eef104c6bd0c87428ad4e5077647bf0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 566.3
+      value: -316.37
       objectReference: {fileID: 0}
     - target: {fileID: 9018644720299495260, guid: 9eef104c6bd0c87428ad4e5077647bf0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5353,15 +5392,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9018644720299495260, guid: 9eef104c6bd0c87428ad4e5077647bf0, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 9018644720299495260, guid: 9eef104c6bd0c87428ad4e5077647bf0, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 9018644720299495260, guid: 9eef104c6bd0c87428ad4e5077647bf0, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 9018644720299495260, guid: 9eef104c6bd0c87428ad4e5077647bf0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5380,6 +5419,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9eef104c6bd0c87428ad4e5077647bf0, type: 3}
+--- !u!4 &941095131 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9018644720299495260, guid: 9eef104c6bd0c87428ad4e5077647bf0, type: 3}
+  m_PrefabInstance: {fileID: 941095130}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &961454459
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6113,7 +6157,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1024921410}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.79, y: -2.6125793, z: 4.9000244}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7196,6 +7240,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: resorte (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 4547982598693668891, guid: 9eef104c6bd0c87428ad4e5077647bf0, type: 3}
+      propertyPath: SpringSource
+      value: 
+      objectReference: {fileID: 524614992}
     - target: {fileID: 9018644720299495260, guid: 9eef104c6bd0c87428ad4e5077647bf0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 194.77402
@@ -8852,6 +8900,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: resorte (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 4547982598693668891, guid: 9eef104c6bd0c87428ad4e5077647bf0, type: 3}
+      propertyPath: SpringSource
+      value: 
+      objectReference: {fileID: 524614992}
     - target: {fileID: 9018644720299495260, guid: 9eef104c6bd0c87428ad4e5077647bf0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 154.5885
@@ -8945,6 +8997,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: resorte (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4547982598693668891, guid: 9eef104c6bd0c87428ad4e5077647bf0, type: 3}
+      propertyPath: SpringSource
+      value: 
+      objectReference: {fileID: 524614992}
     - target: {fileID: 9018644720299495260, guid: 9eef104c6bd0c87428ad4e5077647bf0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 112.03714
@@ -9254,6 +9310,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: resorte (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 4547982598693668891, guid: 9eef104c6bd0c87428ad4e5077647bf0, type: 3}
+      propertyPath: SpringSource
+      value: 
+      objectReference: {fileID: 524614992}
     - target: {fileID: 9018644720299495260, guid: 9eef104c6bd0c87428ad4e5077647bf0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 154.5885
@@ -9589,6 +9649,7 @@ Transform:
   - {fileID: 650687699}
   - {fileID: 203026869}
   - {fileID: 838755060}
+  - {fileID: 941095131}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2025877319
@@ -11703,4 +11764,3 @@ SceneRoots:
   - {fileID: 1769518018}
   - {fileID: 1983189047}
   - {fileID: 783418229}
-  - {fileID: 941095130}

@@ -81,16 +81,27 @@ public class NeedleWeapon : MonoBehaviour
 
         if (needlePrefab != null && firepoint != null)
         {
+            Debug.Log("EstaDisparando ojala Prefab");
             GameObject bullet = Instantiate(needlePrefab, firepoint.position, firepoint.rotation);
             Rigidbody bulletRB = bullet.GetComponent<Rigidbody>();
 
             if (bulletRB != null)
             {
-                bulletRB.useGravity = false;
-                float direction = playerSprite.flipX ? -1f : 1f;
-                bulletRB.velocity = new Vector3(direction * bulletSpeed, 0f, 0f);
+                bulletRB.velocity = firepoint.forward * bulletSpeed;
             }
         }
+    }
+    public bool BuyNeedleAmmo(UIPrincipio uiPrincipio, int cost, int amount)
+    {
+        if (uiPrincipio.springs >= cost)
+        {
+            uiPrincipio.springs -= cost;
+            needlePrefab = Resources.Load<GameObject>("NeedleBullet");
+            AddAmmo(amount);
+            PickUpWeapon();
+            return true;
+        }
+        return false;
     }
 
     private void UpdateUI()

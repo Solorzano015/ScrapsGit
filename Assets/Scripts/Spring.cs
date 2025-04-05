@@ -9,26 +9,29 @@ public class Spring : MonoBehaviour
     private bool isCollected = false;
 
     public AudioClip SpringSound;
-    ///public AudioSource SpringSource;
+    public AudioSource SpringSource;
+
+    // void Start()
+    //{
+    //AudioSource.PlayClipAtPoint(SpringSound, transform.position);
+    //}
+
 
     private void OnTriggerEnter(Collider other)
     {
 
-        void Start()
-        {
-            AudioSource.PlayClipAtPoint(SpringSound, transform.position);
-        }
+      
         if (other.CompareTag("Player"))
         {
             isCollected = true;
 
-            if (SpringSound != null)
+            if (SpringSource != null && SpringSound != null)
             {
-                AudioSource.PlayClipAtPoint(SpringSound, transform.position);
-                //SpringSource.PlayOneShot(SpringSound);
+                //AudioSource.PlayClipAtPoint(SpringSound, transform.position);
+                SpringSource.PlayOneShot(SpringSound);
             }
 
-
+            
 
             UIPrincipio uiPrincipio = other.GetComponentInChildren<UIPrincipio>();
 

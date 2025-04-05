@@ -87,7 +87,10 @@ public class TapeWeapon : MonoBehaviour
 
         if (tapePrefab != null && firepoint != null)
         {
-            GameObject bullet = Instantiate(tapePrefab, firepoint.position, firepoint.rotation);
+
+
+            // GameObject bullet = Instantiate(tapePrefab, firepoint.position, firepoint.rotation);
+            GameObject bullet = Instantiate(tapePrefab, firepoint.position, Quaternion.identity);
             Rigidbody bulletRB = bullet.GetComponent<Rigidbody>();
 
             if (bulletRB != null)
@@ -100,8 +103,8 @@ public class TapeWeapon : MonoBehaviour
                 bulletRB.useGravity = false;
                 float direction = playerSprite.flipX ? -1f : 1f;
                 bulletRB.velocity = new Vector3(direction * bulletSpeed, 0f, 1f);
-                
-               
+
+                Debug.Log("Esta disparando Prefab");
 
 
             }

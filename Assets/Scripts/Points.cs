@@ -5,17 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class Points : MonoBehaviour
 {
-   
-    //shop variables
+
+    
     private int numNeedles = 0;
     private int numTapes = 0;
 
     private int costNeedles = 2;
     private int costTapes = 1;
 
-    public TextMeshProUGUI infoBuyText;
-    public TapeWeapon tapeWeapon;
+    [Header("Scripts")]
+    public tapeWeaponForward tapeWeapon;
     public NeedleWeapon needleWeapon;
+
+    [Header ("UI de tienda")]
+    public TextMeshProUGUI infoBuyText;
     public UIPrincipio uiPrincipio;
 
     
@@ -26,24 +29,23 @@ public class Points : MonoBehaviour
         {
             uiPrincipio = FindAnyObjectByType<UIPrincipio>();
         }
+        if (tapeWeapon == null)
+        {
+            tapeWeapon = FindAnyObjectByType<tapeWeaponForward>();
+        }
+
+        if (needleWeapon == null)
+        {
+            needleWeapon = FindAnyObjectByType<NeedleWeapon>();
+        }
     }
     
     public void buyNeedle()
     {
-        if (uiPrincipio.springs >= costNeedles)
+        if (needleWeapon.BuyNeedleAmmo(uiPrincipio, costNeedles, 2))
         {
             numNeedles += 2;
-            uiPrincipio.springs -= costNeedles;
-            infoBuyText.text =  numNeedles + "Buyed Needle/s and" + uiPrincipio.springs + "Springs left";
-
-            needleWeapon.needlePrefab = Resources.Load<GameObject>("NeedleBullet");
-
-            if (needleWeapon != null)
-            {
-                needleWeapon.needlePrefab = Resources.Load<GameObject>("NeedleBullet");
-                needleWeapon.AddAmmo(2); // Por ejemplo, añade 5 disparos
-                needleWeapon.PickUpWeapon();
-            }
+            infoBuyText.text = numNeedles + " Buyed Needle/s and " + uiPrincipio.springs + " Springs left";
         }
         else
         {
@@ -52,21 +54,10 @@ public class Points : MonoBehaviour
     }
     public void buyTape()
     {
-        if (uiPrincipio.springs >= costTapes)
+        if (tapeWeapon.BuyTapeAmmo(uiPrincipio, costTapes, 3))
         {
             numTapes += 3;
-            uiPrincipio.springs -= costTapes;
-            infoBuyText.text = numTapes + "Buyed Tape/s and" + uiPrincipio.springs + "Springs left";
-
-            tapeWeapon.tapePrefab = Resources.Load<GameObject>("TapeBullet");
-
-            if (tapeWeapon != null)
-            {
-                tapeWeapon.tapePrefab = Resources.Load<GameObject>("TapeBullet");
-                tapeWeapon.AddAmmo(3); // Por ejemplo, añade 5 disparos
-                tapeWeapon.PickUpWeapon();
-            }
-
+            infoBuyText.text = numTapes + " Buyed Tape/s and " + uiPrincipio.springs + " Springs left";
         }
         else
         {

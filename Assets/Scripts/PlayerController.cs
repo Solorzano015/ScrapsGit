@@ -7,6 +7,7 @@ using static UnityEngine.SpriteMask;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Para Movimiento")]
     public float speed;
     public float jumpForce;
     public float groundDist = 0.5f;
@@ -15,28 +16,28 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded;
     public Animator animator;
 
-    // Movimiento
+    [Header ("Movimiento")]
     private Vector2 moveInput;
     private Vector2 lastMoveDirection = Vector2.right; // Dirección inicial hacia la derecha
     public float normalGravity;
     public float AbGravity;
 
-    // Respawn y Render
+    [Header("Respawn/Render")]
     public LayerMask groundMask;
     public Transform Respawn;
     public SpriteRenderer spriteRenderer;
 
-    // Habilidad
+    [Header("Habilidad")]
     public float maxGlideTime = 0.5f;
     private float glideTime = 0f;
     private bool canGlide = true;
 
-    //animacion disparo
+    [Header("Animacion Disparo")]
     private bool hasWeapon = false;
     private bool isShooting = false;
 
 
-    // Audio
+    [Header("Sonidos")]
     public AudioClip jumpSound;
     public AudioClip attackSound;
     public AudioClip glideSound;
@@ -47,10 +48,10 @@ public class PlayerController : MonoBehaviour
     private AudioSource musicSource;
     private AudioSource walkingSource;
 
-    // Para control de reproducción del sonido de planeo
+    
     private bool isGlideSoundPlaying = false;
 
-    // Referencia opcional al sistema de salud
+    [Header("Salud")]
     public HealthControl healthControl;
 
     void Start()
