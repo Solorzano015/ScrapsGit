@@ -2,6 +2,7 @@ using NUnit.Framework;
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.Rendering;
+using UnityEngine.Audio;
 
 public class EnemyG : MonoBehaviour
 {
@@ -23,6 +24,10 @@ public class EnemyG : MonoBehaviour
     // Contador de enemigos eliminados
     private static int enemyKillCount = 0;
     public GameObject healthPrefab;
+
+    //Sonidos
+    public AudioSource attackSource;
+    public AudioClip attackSound;
 
     void Start()
     {
@@ -107,6 +112,13 @@ public class EnemyG : MonoBehaviour
         attackTimer = 0f;
         animator.SetBool("Attacking", true);
         //animator.SetTrigger("Attacking");
+
+        if (attackSound != null)
+        {
+            attackSource.PlayOneShot(attackSound);
+            Debug.Log("Sonido de ataque");
+        }
+
         Debug.Log("Salir animacion atacando el enemigo");
     }
 
