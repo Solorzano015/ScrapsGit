@@ -60,11 +60,13 @@ public class PlayerController : MonoBehaviour
 
         sfxSource = gameObject.AddComponent<AudioSource>();
         musicSource = gameObject.AddComponent<AudioSource>();
-
         walkingSource = gameObject.AddComponent<AudioSource>();
+
+
         walkingSource.clip = walkingSound;
         walkingSource.loop = true;
         walkingSource.volume = 0.6f;
+
         musicSource.clip = backgroundMusic;
         musicSource.loop = true;
         musicSource.volume = 0.5f;
@@ -87,6 +89,8 @@ public class PlayerController : MonoBehaviour
 
         bool isWalking = moveInput.magnitude > 0.1f && isGrounded;
 
+
+        //walking sound 
         if (isWalking && !walkingSource.isPlaying)
         {
             walkingSource.Play();

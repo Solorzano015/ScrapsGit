@@ -3,16 +3,17 @@ using UnityEngine;
 
 public class BossFinal : MonoBehaviour
 {
+    [Header("Movimiento")] //Boss
     public float speed = 7f;
     public LayerMask obstacleLayer;
     private Vector3 direction = Vector3.right;
 
-    // Vida del enemigo
+    [Header("En vida")] //Boss
     public float enemyBHealth = 8f;
     public float maxEnemyHealth = 8f;
 
 
-    //disparo 
+    [Header("Disparo")] //Boss
     public GameObject BossWeaponPrefab;
     public Transform firepoint;
     public float bulletSpeed = 30f;
@@ -33,10 +34,10 @@ public class BossFinal : MonoBehaviour
 
     void Update()
     {
-
+        //va lateral
         transform.position += direction * speed * Time.deltaTime;
 
-        // Detecta si hay un obstáculo adelante
+        // Detecta si hay un obstáculo adelante y cambia de posicion
         if (Physics.Raycast(transform.position, direction, 0.6f, obstacleLayer))
         {
             direction *= -1;
@@ -57,13 +58,13 @@ public class BossFinal : MonoBehaviour
 
     void ShootAtLastKnownPosition()
     {
-        if (playerPositions.Count < 2) return; // al menos dos posiciones
+        if (playerPositions.Count < 1) return; // al menos dos posiciones
 
-        Vector3 targetPos = playerPositions[playerPositions.Count - 2]; //  penúltima posición (mas sencillo)
+        Vector3 targetPos = playerPositions[playerPositions.Count - 1]; //  penúltima posición (mas sencillo)
 
-        for (int i = 0; i < 4; i++)
-        {
-            GameObject bullet = Instantiate(BossWeaponPrefab, firepoint.position, Quaternion.identity);
+       // for (int i = 0; i < 4; i++)
+      //  {
+            GameObject bullet = Instantiate(BossWeaponPrefab, firepoint.position, Quaternion.identity); //crea una bala
             Rigidbody bulletRB = bullet.GetComponent<Rigidbody>();
 
             if (bulletRB != null)
@@ -76,11 +77,11 @@ public class BossFinal : MonoBehaviour
             BossBullet bossBullet = bullet.GetComponent<BossBullet>();
             if (bossBullet != null)
             {
-                bossBullet.damage = 1f; // Puedes ajustar esto
+                bossBullet.damage = 1f; 
             }
 
             Destroy(bullet, bulletLifetime); // destruir después de X segundos
-        }
+       // }
     }
 
     public void TakeDamage(float amount)

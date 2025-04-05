@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class TapeWeapon : MonoBehaviour
 {
+    [Header("En Disparo")]
     public GameObject tapePrefab;
     public Transform firepoint;
     public float bulletSpeed = 10f;
@@ -11,9 +12,14 @@ public class TapeWeapon : MonoBehaviour
     public SpriteRenderer playerSprite;
     public Animator weaponAnimator; // Agregar Animator para el arma
 
+    [Header ("En UI")]
     public int ammoCount = 15; //disparos disponibles
     public TextMeshProUGUI tapeAText;
     public GameObject tapeWUI;
+
+    
+
+
 
     private void Start()
     {
@@ -86,9 +92,18 @@ public class TapeWeapon : MonoBehaviour
 
             if (bulletRB != null)
             {
+
+                //Vector3 direction = shootForward ? firepoint.forward : firepoint.right;
+
+               
+                               
                 bulletRB.useGravity = false;
                 float direction = playerSprite.flipX ? -1f : 1f;
-                bulletRB.velocity = new Vector3(direction * bulletSpeed, 0f, 0f);
+                bulletRB.velocity = new Vector3(direction * bulletSpeed, 0f, 1f);
+                
+               
+
+
             }
         }
     }
