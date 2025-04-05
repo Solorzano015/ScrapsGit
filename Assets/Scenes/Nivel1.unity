@@ -502,7 +502,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 243590562}
-  - {fileID: 215476897}
   - {fileID: 1864918877}
   - {fileID: 896799171}
   - {fileID: 2100293589}
@@ -779,68 +778,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 888ce82c0af2ab0499d39c93fb0f4ce4, type: 3}
---- !u!1001 &215476896
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 104580265}
-    m_Modifications:
-    - target: {fileID: 1080040880958351534, guid: 9eef104c6bd0c87428ad4e5077647bf0, type: 3}
-      propertyPath: m_Name
-      value: resorte (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 9018644720299495260, guid: 9eef104c6bd0c87428ad4e5077647bf0, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -235.03957
-      objectReference: {fileID: 0}
-    - target: {fileID: 9018644720299495260, guid: 9eef104c6bd0c87428ad4e5077647bf0, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -49.662506
-      objectReference: {fileID: 0}
-    - target: {fileID: 9018644720299495260, guid: 9eef104c6bd0c87428ad4e5077647bf0, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 24.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9018644720299495260, guid: 9eef104c6bd0c87428ad4e5077647bf0, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9018644720299495260, guid: 9eef104c6bd0c87428ad4e5077647bf0, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9018644720299495260, guid: 9eef104c6bd0c87428ad4e5077647bf0, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9018644720299495260, guid: 9eef104c6bd0c87428ad4e5077647bf0, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9018644720299495260, guid: 9eef104c6bd0c87428ad4e5077647bf0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9018644720299495260, guid: 9eef104c6bd0c87428ad4e5077647bf0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9018644720299495260, guid: 9eef104c6bd0c87428ad4e5077647bf0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 9eef104c6bd0c87428ad4e5077647bf0, type: 3}
---- !u!4 &215476897 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 9018644720299495260, guid: 9eef104c6bd0c87428ad4e5077647bf0, type: 3}
-  m_PrefabInstance: {fileID: 215476896}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &243590561
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -853,6 +790,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: resorte
       objectReference: {fileID: 0}
+    - target: {fileID: 4547982598693668891, guid: 9eef104c6bd0c87428ad4e5077647bf0, type: 3}
+      propertyPath: SpringSource
+      value: 
+      objectReference: {fileID: 7947884279344262257, guid: 9eef104c6bd0c87428ad4e5077647bf0, type: 3}
+    - target: {fileID: 7947884279344262257, guid: 9eef104c6bd0c87428ad4e5077647bf0, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: 226d4fce158d4244aacd2bfe3947be43, type: 3}
+    - target: {fileID: 7947884279344262257, guid: 9eef104c6bd0c87428ad4e5077647bf0, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 226d4fce158d4244aacd2bfe3947be43, type: 3}
     - target: {fileID: 9018644720299495260, guid: 9eef104c6bd0c87428ad4e5077647bf0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3134,11 +3083,12 @@ MonoBehaviour:
   Respawn: {fileID: 140733265}
   spriteRenderer: {fileID: 729762818}
   maxGlideTime: 1
-  jumpSound: {fileID: 0}
-  attackSound: {fileID: 0}
-  glideSound: {fileID: 0}
-  backgroundMusic: {fileID: 0}
-  healthControl: {fileID: 0}
+  jumpSound: {fileID: 8300000, guid: 92637dd2c71511940bf2c714a61271a4, type: 3}
+  attackSound: {fileID: 8300000, guid: 478dca4d9265fb3419ab31faf80e20c0, type: 3}
+  glideSound: {fileID: 8300000, guid: 4afbaf9cabfe4504da43d2ac394498d2, type: 3}
+  backgroundMusic: {fileID: 8300000, guid: a306b52c53390f047afaec157b040fb9, type: 3}
+  walkingSound: {fileID: 8300000, guid: 5cfab4815f327174b82c13a7f1f8f198, type: 3}
+  healthControl: {fileID: 729762816}
 --- !u!212 &729762818
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -3,16 +3,28 @@ using UnityEngine;
 
 public class BossFinal : MonoBehaviour
 {
+    public float speed = 7f;
+    public LayerMask obstacleLayer;
+    private Vector3 direction = Vector3.right;
+
+    // Vida del enemigo
+    public float enemyBHealth = 8f;
+    public float maxEnemyHealth = 8f;
+
+
+    //disparo 
     public GameObject BossWeaponPrefab;
     public Transform firepoint;
     public float bulletSpeed = 30f;
-    public float bulletLifetime = 16f;
+    public float bulletLifetime = 20f;
 
     private Transform player;
     private List<Vector3> playerPositions = new List<Vector3>(); //almacenar la ultima posicion del jugador 
 
     void Start()
     {
+        enemyBHealth = maxEnemyHealth;
+
         player = GameObject.FindGameObjectWithTag("Player")?.transform; //encuentre al jugador
 
         // para disparar cada 3 seg
@@ -21,6 +33,15 @@ public class BossFinal : MonoBehaviour
 
     void Update()
     {
+
+        transform.position += direction * speed * Time.deltaTime;
+
+        // Detecta si hay un obstáculo adelante
+        if (Physics.Raycast(transform.position, direction, 0.6f, obstacleLayer))
+        {
+            direction *= -1;
+        }
+
         if (player != null)
         {
             // Guardar posición actual del jugador/frame
@@ -60,5 +81,20 @@ public class BossFinal : MonoBehaviour
 
             Destroy(bullet, bulletLifetime); // destruir después de X segundos
         }
+    }
+
+    public void TakeDamage(float amount)
+    {
+        enemyBHealth -= amount;
+        if (enemyBHealth <= 0)
+        {
+            DieBoss();
+        }
+    }
+
+    void DieBoss()
+    {
+        
+        Destroy(gameObject);
     }
 }

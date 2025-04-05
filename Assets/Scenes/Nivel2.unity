@@ -2211,6 +2211,12 @@ MonoBehaviour:
   Respawn: {fileID: 1844741046}
   spriteRenderer: {fileID: 524614985}
   maxGlideTime: 1
+  jumpSound: {fileID: 8300000, guid: 92637dd2c71511940bf2c714a61271a4, type: 3}
+  attackSound: {fileID: 8300000, guid: 478dca4d9265fb3419ab31faf80e20c0, type: 3}
+  glideSound: {fileID: 8300000, guid: 4afbaf9cabfe4504da43d2ac394498d2, type: 3}
+  backgroundMusic: {fileID: 0}
+  walkingSound: {fileID: 8300000, guid: 5cfab4815f327174b82c13a7f1f8f198, type: 3}
+  healthControl: {fileID: 524614983}
 --- !u!212 &524614985
 SpriteRenderer:
   m_ObjectHideFlags: 0

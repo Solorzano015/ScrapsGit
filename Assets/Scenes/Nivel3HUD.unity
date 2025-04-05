@@ -3589,11 +3589,12 @@ MonoBehaviour:
   Respawn: {fileID: 1117987400}
   spriteRenderer: {fileID: 684275621}
   maxGlideTime: 1
-  jumpSound: {fileID: 0}
-  attackSound: {fileID: 0}
-  glideSound: {fileID: 0}
-  backgroundMusic: {fileID: 0}
-  healthControl: {fileID: 0}
+  jumpSound: {fileID: 8300000, guid: 92637dd2c71511940bf2c714a61271a4, type: 3}
+  attackSound: {fileID: 8300000, guid: 478dca4d9265fb3419ab31faf80e20c0, type: 3}
+  glideSound: {fileID: 8300000, guid: 4afbaf9cabfe4504da43d2ac394498d2, type: 3}
+  backgroundMusic: {fileID: 8300000, guid: 0cda4500c1bcc2c4a8aebca3923d35e0, type: 3}
+  walkingSound: {fileID: 8300000, guid: 5cfab4815f327174b82c13a7f1f8f198, type: 3}
+  healthControl: {fileID: 684275622}
 --- !u!54 &684275625
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12605,13 +12606,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1719519046356340024}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0.044142466, w: 0.9990253}
+  m_LocalPosition: {x: 77.04, y: 0.6, z: 55.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7322349454614466592}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 5.06}
 --- !u!4 &2938038257637532996
 Transform:
   m_ObjectHideFlags: 0

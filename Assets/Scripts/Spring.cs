@@ -13,6 +13,11 @@ public class Spring : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+
+        void Start()
+        {
+            AudioSource.PlayClipAtPoint(SpringSound, transform.position);
+        }
         if (other.CompareTag("Player"))
         {
             isCollected = true;

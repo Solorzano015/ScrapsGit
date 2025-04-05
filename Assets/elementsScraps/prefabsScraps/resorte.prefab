@@ -127,7 +127,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   valor: 2
   SpringSound: {fileID: 8300000, guid: 226d4fce158d4244aacd2bfe3947be43, type: 3}
-  SpringSource: {fileID: 7947884279344262257}
 --- !u!135 &7264657407958521427
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -161,14 +160,14 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1.86
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 12
+  Priority: 127
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
