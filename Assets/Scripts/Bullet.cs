@@ -14,13 +14,30 @@ public class Bullet : MonoBehaviour
     {
         if (other.CompareTag("Enemy")) // Verifica si golpeó a un enemigo
         {
-        Debug.Log("Bala impactó al enemigo.");
-        EnemyG enemy = other.GetComponent<EnemyG>();
-            BossFinal bossFinal = other.GetComponent<BossFinal>();
+           Debug.Log("Bala impactó al enemigo.");
+           EnemyG enemy = other.GetComponent<EnemyG>();
+           
 
             if (enemy != null)
             {
                 enemy.TakeDamage(damage);
+                
+
+                Debug.Log($"Disparo impactó en {other.gameObject.name}, causando {damage} de daño");
+            }
+            
+
+            Destroy(gameObject); // Destruye la bala al impactar
+        }
+        if (other.CompareTag("Boss")) // Verifica si golpeó a un enemigo
+        {
+            Debug.Log("Bala impactó al enemigoB.");
+            
+            BossFinal bossFinal = other.GetComponent<BossFinal>();
+                       
+            if (bossFinal != null)
+            {
+
                 bossFinal.TakeDamage(damage);
 
                 Debug.Log($"Disparo impactó en {other.gameObject.name}, causando {damage} de daño");

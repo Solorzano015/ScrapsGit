@@ -3663,9 +3663,10 @@ GameObject:
   - component: {fileID: 1024374857}
   - component: {fileID: 1024374858}
   - component: {fileID: 1024374859}
+  - component: {fileID: 1024374860}
   m_Layer: 0
   m_Name: EnemyBOSS
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3849,6 +3850,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 2
+--- !u!114 &1024374860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024374852}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50e28dc9cf5cbb947830c93beacfb3f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  enemyHealth: 8
+  maxEnemyHealth: 8
+  animator: {fileID: 833266826}
+  healthPrefab: {fileID: 2468927930348686009, guid: 2a3c09cb47b061940a7418b2254691c6, type: 3}
+  attackSource: {fileID: 1024374857}
+  attackSound: {fileID: 8300000, guid: 68bd0ab62a3eb7744958f1945551c152, type: 3}
 --- !u!1 &1026035424
 GameObject:
   m_ObjectHideFlags: 0

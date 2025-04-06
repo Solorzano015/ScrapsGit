@@ -27,10 +27,10 @@ public class BossFinal : MonoBehaviour
     {
         enemyBHealth = maxEnemyHealth;
 
-        player = GameObject.FindGameObjectWithTag("Player")?.transform; //encuentre al jugador
+        ///player = GameObject.FindGameObjectWithTag("Player")?.transform; //encuentre al jugador
 
         // para disparar cada 3 seg
-        InvokeRepeating("ShootAtLastKnownPosition", 1f, 3f);
+        //InvokeRepeating("ShootAtLastKnownPosition", 1f, 3f);
     }
 
     void Update()
@@ -43,7 +43,8 @@ public class BossFinal : MonoBehaviour
         {
             direction *= -1;
         }
-
+    }
+        /*
         if (player != null)
         {
             // Guardar posición actual del jugador/frame
