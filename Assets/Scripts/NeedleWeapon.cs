@@ -7,7 +7,7 @@ public class NeedleWeapon : MonoBehaviour
 
     public GameObject needlePrefab;
     public Transform firepoint;
-    public float bulletSpeed = 10f;
+    public float bulletSpeed = 100f;
     private bool hasWeapon = false;
     public SpriteRenderer playerSprite;
     public Animator weaponAnimator; // Agregar Animator para el arma
@@ -45,6 +45,7 @@ public class NeedleWeapon : MonoBehaviour
         {
             needleWUI.SetActive(true);
         }
+        gameObject.SetActive(true);
         UpdateUI();
     }
 
@@ -96,9 +97,9 @@ public class NeedleWeapon : MonoBehaviour
         if (uiPrincipio.springs >= cost)
         {
             uiPrincipio.springs -= cost;
-            needlePrefab = Resources.Load<GameObject>("NeedleBullet");
             AddAmmo(amount);
             PickUpWeapon();
+            gameObject.SetActive(true);
             return true;
         }
         return false;

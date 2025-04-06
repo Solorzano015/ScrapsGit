@@ -46,6 +46,7 @@ public class tapeWeaponForward : MonoBehaviour
         {
             tapeWUI.SetActive(true);
         }
+        gameObject.SetActive(true);
         UpdateUI(); //se llama a funcion para que se actualice la ui
     }
 
@@ -98,9 +99,9 @@ public class tapeWeaponForward : MonoBehaviour
         if (uiPrincipio.springs >= cost)
         {
             uiPrincipio.springs -= cost;
-            tapePrefab = Resources.Load<GameObject>("TapeBullet");
             AddAmmo(amount);
             PickUpWeapon();
+            gameObject.SetActive(true);
             return true;
         }
         return false;

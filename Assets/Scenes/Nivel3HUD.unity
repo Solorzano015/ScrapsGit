@@ -859,6 +859,7 @@ GameObject:
   m_Component:
   - component: {fileID: 130643601}
   - component: {fileID: 130643600}
+  - component: {fileID: 130643602}
   m_Layer: 0
   m_Name: ShopManager
   m_TagString: Untagged
@@ -873,7 +874,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 130643599}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 775c8e09826321746a9a0ebd808d76a8, type: 3}
   m_Name: 
@@ -897,6 +898,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 439139698}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &130643602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130643599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7977f85a541dc944cbca83da8c5cf04d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiPrincipio: {fileID: 684275620}
+  infoBuyText: {fileID: 2051636581}
+  needleWeapon: {fileID: 684275632}
+  tapeWeapon: {fileID: 684275633}
+  needleAmmoCost: 10
+  needleAmmoAmount: 5
+  tapeAmmoCost: 15
+  tapeAmmoAmount: 3
 --- !u!1 &182048011
 GameObject:
   m_ObjectHideFlags: 0
@@ -3885,7 +3906,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   needlePrefab: {fileID: 5662828879435730936, guid: 4f5ede3d254508b4caa07130a8bf11f8, type: 3}
   firepoint: {fileID: 1392260987}
-  bulletSpeed: 10
+  bulletSpeed: 100
   playerSprite: {fileID: 684275621}
   weaponAnimator: {fileID: 684275623}
   ammoCount: 0
@@ -4230,7 +4251,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &770622662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5509,7 +5530,6 @@ GameObject:
   - component: {fileID: 924653462}
   - component: {fileID: 924653461}
   - component: {fileID: 924653460}
-  - component: {fileID: 924653463}
   m_Layer: 5
   m_Name: TapeNB
   m_TagString: Untagged
@@ -5579,7 +5599,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 924653461}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 130643602}
+        m_TargetAssemblyTypeName: ShopWeapons, Assembly-CSharp
+        m_MethodName: BuyTape
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &924653461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5618,19 +5650,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 924653458}
   m_CullTransparentMesh: 1
---- !u!114 &924653463
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 924653458}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84972f97d14bc2d4eb73348a2db8af0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shopPoints: {fileID: 130643600}
 --- !u!4 &926915767 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: bcf2f716d78860f45ba4cda490856ec0, type: 3}
@@ -8497,7 +8516,6 @@ GameObject:
   - component: {fileID: 1451774712}
   - component: {fileID: 1451774711}
   - component: {fileID: 1451774710}
-  - component: {fileID: 1451774713}
   m_Layer: 5
   m_Name: NeedleNB
   m_TagString: Untagged
@@ -8567,7 +8585,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1451774711}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 130643602}
+        m_TargetAssemblyTypeName: ShopWeapons, Assembly-CSharp
+        m_MethodName: BuyNeedle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1451774711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8606,19 +8636,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1451774708}
   m_CullTransparentMesh: 1
---- !u!114 &1451774713
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1451774708}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49f9d1435622ee646bad9355405f6870, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shopPoints: {fileID: 130643600}
 --- !u!1 &1479964112
 GameObject:
   m_ObjectHideFlags: 0
@@ -8746,7 +8763,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1518544378
 MonoBehaviour:
   m_ObjectHideFlags: 0

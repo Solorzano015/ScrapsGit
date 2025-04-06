@@ -20,7 +20,7 @@ public class PickUpWeapon : MonoBehaviour
                 {
                     tapeWUI.SetActive(true); // Activa la UI del arma
                 }
-
+                gameObject.SetActive(true);
                 Debug.Log("Arma recogida: Tape Weapon"); 
                 Destroy(gameObject);
             }

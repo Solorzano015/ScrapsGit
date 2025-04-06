@@ -22,6 +22,7 @@ public class PickUpForwardWeapon : MonoBehaviour
 
                 Debug.Log("Arma recogida: Tape Weapon");
                 Destroy(gameObject);
+                gameObject.SetActive(true);
             }
 
         }
