@@ -14,13 +14,13 @@ public class ShopWeapons : MonoBehaviour
     
 
     [Header("Costos y cantidades")]
-    public int needleAmmoCost = 2;
-    public int needleAmmoAmount = 0;
+    public int needleAmmoCost = 1;
+    public int needleAmmoAmount = 2;
 
     public int tapeAmmoCost = 1;
-    public int tapeAmmoAmount = 5;
+    public int tapeAmmoAmount = 3;
 
-    // Llamar esta función desde el botón para comprar agujas
+    // Llamar esta función desde el botón para scomprar agujas
     public void BuyNeedle()
     {
         if (needleWeapon != null && uiPrincipio != null)
