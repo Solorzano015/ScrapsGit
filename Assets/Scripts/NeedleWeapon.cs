@@ -83,7 +83,9 @@ public class NeedleWeapon : MonoBehaviour
         if (needlePrefab != null && firepoint != null)
         {
             Debug.Log("EstaDisparando ojala Prefab");
-            GameObject bullet = Instantiate(needlePrefab, firepoint.position, firepoint.rotation);
+            //GameObject bullet = Instantiate(needlePrefab, firepoint.position, firepoint.rotation);
+            Quaternion rotated = firepoint.rotation * Quaternion.Euler(0, 45, 0); 
+            GameObject bullet = Instantiate(needlePrefab, firepoint.position, rotated);
             Rigidbody bulletRB = bullet.GetComponent<Rigidbody>();
 
             if (bulletRB != null)

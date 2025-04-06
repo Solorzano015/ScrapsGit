@@ -12,12 +12,13 @@ public class BossFinal : MonoBehaviour
     public float enemyBHealth = 8f;
     public float maxEnemyHealth = 8f;
 
-
+    /*
     [Header("Disparo")] //Boss
     public GameObject BossWeaponPrefab;
     public Transform firepoint;
     public float bulletSpeed = 30f;
     public float bulletLifetime = 20f;
+    */
 
     private Transform player;
     private List<Vector3> playerPositions = new List<Vector3>(); //almacenar la ultima posicion del jugador 
@@ -55,7 +56,7 @@ public class BossFinal : MonoBehaviour
             }
         }
     }
-
+     /*
     void ShootAtLastKnownPosition()
     {
         if (playerPositions.Count < 1) return; // al menos dos posiciones
@@ -83,14 +84,17 @@ public class BossFinal : MonoBehaviour
             Destroy(bullet, bulletLifetime); // destruir después de X segundos
        // }
     }
+     */
 
     public void TakeDamage(float amount)
     {
+
         enemyBHealth -= amount;
         if (enemyBHealth <= 0)
         {
             DieBoss();
         }
+        Debug.Log ("infligio damage, new life:" + enemyBHealth);
     }
 
     void DieBoss()

@@ -16,10 +16,13 @@ public class Bullet : MonoBehaviour
         {
         Debug.Log("Bala impactó al enemigo.");
         EnemyG enemy = other.GetComponent<EnemyG>();
+            BossFinal bossFinal = other.GetComponent<BossFinal>();
 
             if (enemy != null)
             {
                 enemy.TakeDamage(damage);
+                bossFinal.TakeDamage(damage);
+
                 Debug.Log($"Disparo impactó en {other.gameObject.name}, causando {damage} de daño");
             }
 
