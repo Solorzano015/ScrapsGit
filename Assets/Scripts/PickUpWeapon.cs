@@ -5,6 +5,9 @@ public class PickUpWeapon : MonoBehaviour
 
     public int ammoGiven;
     public GameObject tapeWUI;
+
+    public AudioClip TapeSound;
+    public AudioSource TapeSource;
     //public int noooo;
     private void OnTriggerEnter(Collider other)
     {
@@ -15,6 +18,12 @@ public class PickUpWeapon : MonoBehaviour
             {
                 weapon.PickUpWeapon();
                 weapon.AddAmmo(ammoGiven);
+
+                if (TapeSource != null && TapeSound != null)
+                {
+                    //AudioSource.PlayClipAtPoint(SpringSound, transform.position);
+                    TapeSource.PlayOneShot(TapeSound);
+                }
 
                 if (tapeWUI != null)
                 {

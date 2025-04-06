@@ -124,6 +124,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c4fde0fc46e2c34682a95097673437b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healSource: {fileID: 0}
+  healSound: {fileID: 8300000, guid: 0674401ff208b5f449141940933249bb, type: 3}
 --- !u!95 &3028010423817127323
 Animator:
   serializedVersion: 7
